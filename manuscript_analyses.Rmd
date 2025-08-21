@@ -1,0 +1,1307 @@
+---
+title: "Multi-Institutional RCT Results"
+author: "Julie Cachia"
+date: "2025-08-15"
+output: 
+  html_document:
+    toc: true
+    toc_float:
+      toc_collapsed: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+These are results for the multi-institutional study involving students from UW, Foothill College, and Chapman University. Data collected in the Fall/Winter of 2024. 
+
+# Load libraries
+
+```{r, include=FALSE}
+library(tidyverse)
+library(lmerTest)
+library(emmeans)
+library(ggpubr)
+library(effectsize)
+library(sjPlot)
+library(sjmisc)
+library(sjlabelled)
+library(knitr)
+library(formattable)
+```
+
+# Load data
+
+```{r, include=FALSE}
+# Load data from Foothill College
+Wave0_Foothill <- read_csv("./data/raw/Foothill_Wave0.csv") |> mutate(univ = "Foothill") |> slice(-c(1:2))
+Wave1_Foothill <- read_csv("./data/raw/Foothill_Wave1.csv") |> mutate(univ = "Foothill") |> slice(-c(1:2)) 
+Wave2_Foothill <- read_csv("./data/raw/Foothill_Wave2.csv") |> mutate(univ = "Foothill") |> slice(-c(1:2)) 
+Wave3_Foothill <- read_csv("./data/raw/Foothill_Wave3.csv") |> mutate(univ = "Foothill") |> slice(-c(1:2)) 
+
+# Load data from University of Washington
+Wave0_UW <- read_csv("./data/raw/UW_Wave0.csv") |> mutate(univ = "UW") |> slice(-c(1:2))
+Wave1_UW <- read_csv("./data/raw/UW_Wave1.csv") |> mutate(univ = "UW") |> slice(-c(1:2))
+Wave2_UW <- read_csv("./data/raw/UW_Wave2.csv") |> mutate(univ = "UW") |> slice(-c(1:2))
+Wave3_UW <- read_csv("./data/raw/UW_Wave3.csv") |> mutate(univ = "UW") |> slice(-c(1:2))
+
+# Load data from Chapman University
+Wave0_Chapman <- read_csv("./data/raw/Chapman_Wave0.csv") |> mutate(univ = "Chapman") |> slice(-c(1:2))
+Wave1_Chapman<- read_csv("./data/raw/Chapman_Wave1.csv") |> mutate(univ = "Chapman") |> slice(-c(1:2))
+Wave2_Chapman <- read_csv("./data/raw/Chapman_Wave2.csv") |> mutate(univ = "Chapman") |> slice(-c(1:2))
+Wave3_Chapman <- read_csv("./data/raw/Chapman_Wave3.csv") |> mutate(univ = "Chapman") |> slice(-c(1:2))
+```
+
+# Merge data
+
+## Combine universities for each wave
+
+```{r, include=FALSE}
+# wave 0
+Wave0 <- bind_rows(Wave0_Foothill, Wave0_UW, Wave0_Chapman)
+
+# wave 1 
+Wave1 <- bind_rows(Wave1_Foothill, Wave1_UW, Wave1_Chapman)
+
+# wave 2
+Wave2 <- bind_rows(Wave2_Foothill, Wave2_UW, Wave2_Chapman)
+
+# wave 3 
+Wave3 <- bind_rows(Wave3_Foothill, Wave3_UW, Wave3_Chapman)
+```
+
+## Clean
+
+```{r, include=FALSE}
+Wave0 <- Wave0 |> 
+  dplyr::select(-c(unique_ID...162, unique_ID...163, starts_with("SWEMWBS_"))) |> 
+  dplyr::rename(unique_ID = unique_ID...158) |> 
+  dplyr::select(StartDate:ResponseId, PHQ_4_1:last_col()) |> 
+  filter(!is.na(unique_ID)) |> # remove rows with NA in unique_ID
+  rename_with(~ paste0(., "_T1"), -c(unique_ID, univ)) # add suffix to track timepoint
+
+Wave1 <- Wave1 |> 
+  dplyr::select(StartDate:ResponseId, ExternalReference, PHQ_4_1:last_col()) |> 
+  dplyr::select(-unique_ID) |> 
+  dplyr::rename(unique_ID = ExternalReference) |> 
+  filter(!is.na(unique_ID)) |>  # remove rows with NA in unique_ID
+  distinct(univ, unique_ID, .keep_all = TRUE) |> # remove duplicates (keep first entry only)
+  rename_with(~ paste0(., "_T2"), -c(unique_ID, univ)) # add suffix to track timepoint
+
+Wave2 <- Wave2 |> 
+  dplyr::select(StartDate:ResponseId, ExternalReference, PHQ_4_1:last_col()) |> 
+  dplyr::select(-unique_ID) |> 
+  dplyr::rename(unique_ID = ExternalReference) |> 
+  filter(!is.na(unique_ID)) |> # remove rows with NA in unique_ID
+  distinct(univ, unique_ID, .keep_all = TRUE) |> # remove duplicates (keep first entry only)
+  rename_with(~ paste0(., "_T3"), -c(unique_ID, univ)) # add suffix to track timepoint
+
+Wave3 <- Wave3 |> 
+  dplyr::select(-c(starts_with("SWEMWBS_"))) |> 
+  dplyr::select(StartDate:ResponseId, ExternalReference, PHQ_4_1:last_col()) |> 
+  dplyr::select(-unique_ID) |> 
+  dplyr::rename(unique_ID = ExternalReference) |> 
+  filter(!is.na(unique_ID)) |>  # remove rows with NA in unique_ID
+  distinct(univ, unique_ID, .keep_all = TRUE) |> # remove duplicates (keep first entry only)
+  rename_with(~ paste0(., "_T4"), -c(unique_ID, univ)) # add suffix to track timepoint
+```
+
+## Merge dataframes
+
+```{r, include=FALSE}
+merged_data <- Wave0 %>%
+  full_join(Wave1, by = c("unique_ID", "univ")) |> 
+  full_join(Wave2, by = c("unique_ID", "univ")) |> 
+  full_join(Wave3, by = c("unique_ID", "univ")) |> 
+  mutate(across(c(PHQ_4_1_T1:app_use_T1, importance_factors_1_T1:importance_factors_9_T1, app_helpful_T1, AI_purpose_1_T1:Age_T1, PHQ_4_1_T2:SAS_18_T2, Engagement_1_T2:Engagement_3_T2, PHQ_4_1_T3:SAS_18_T3, Engagement_1_T3:Engagement_3_T3, PHQ_4_1_T4:ios_T4, Engagement_1_T4:Engagement_3_T4), as.numeric)) # make numeric
+
+# rescale to intended scale
+merged_data <- merged_data |> 
+  dplyr::mutate(cohesion_T1 = cohesion_T1 - 1,
+                cohesion_T4 = cohesion_T4 - 1) |> 
+  dplyr::mutate(across(starts_with("SAS_") & ends_with("_T4"), ~ . - 1))
+
+# create truly unique identifier (since we had a duplicate unique ID (241C) across institutions)
+merged_data <- merged_data %>%
+  mutate(unique_ID = paste(univ, unique_ID, sep = "_"))
+```
+
+# Compute Variables
+
+```{r, include=FALSE}
+merged_data <- merged_data |> 
+  # affect
+  mutate(across(starts_with("SAS"), ~ . - 1)) |> # adjust scale from 1-5 to 0-4
+  mutate(
+    # Positive affect subscales
+    SAS_calm_T1 = rowSums(across(c(SAS_1_T1, SAS_2_T1, SAS_3_T1)), na.rm = FALSE),
+    SAS_well_being_T1 = rowSums(across(c(SAS_4_T1, SAS_5_T1, SAS_6_T1)), na.rm = FALSE),
+    SAS_vigour_T1 = rowSums(across(c(SAS_7_T1, SAS_8_T1, SAS_9_T1)), na.rm = FALSE),
+    
+    # Negative affect subscales
+    SAS_depression_T1 = rowSums(across(c(SAS_10_T1, SAS_11_T1, SAS_12_T1)), na.rm = FALSE),
+    SAS_anxiety_T1 = rowSums(across(c(SAS_13_T1, SAS_14_T1, SAS_15_T1)), na.rm = FALSE),
+    SAS_anger_T1 = rowSums(across(c(SAS_16_T1, SAS_17_T1, SAS_18_T1)), na.rm = FALSE),
+    
+    # Total positive affect (sum across all positive items)
+    SAS_positive_T1 = rowSums(across(c(SAS_1_T1, SAS_2_T1, SAS_3_T1, SAS_4_T1, SAS_5_T1, SAS_6_T1, SAS_7_T1, SAS_8_T1, SAS_9_T1)), na.rm = FALSE),
+    
+    # Total negative affect (sum across all negative items)
+    SAS_negative_T1 = rowSums(across(c(SAS_10_T1, SAS_11_T1, SAS_12_T1, SAS_13_T1, SAS_14_T1, SAS_15_T1, SAS_16_T1, SAS_17_T1, SAS_18_T1)), na.rm = FALSE)
+  ) |> 
+  mutate(
+    # Positive affect subscales
+    SAS_calm_T2 = rowSums(across(c(SAS_1_T2, SAS_2_T2, SAS_3_T2)), na.rm = FALSE),
+    SAS_well_being_T2 = rowSums(across(c(SAS_4_T2, SAS_5_T2, SAS_6_T2)), na.rm = FALSE),
+    SAS_vigour_T2 = rowSums(across(c(SAS_7_T2, SAS_8_T2, SAS_9_T2)), na.rm = FALSE),
+    
+    # Negative affect subscales
+    SAS_depression_T2 = rowSums(across(c(SAS_10_T2, SAS_11_T2, SAS_12_T2)), na.rm = FALSE),
+    SAS_anxiety_T2 = rowSums(across(c(SAS_13_T2, SAS_14_T2, SAS_15_T2)), na.rm = FALSE),
+    SAS_anger_T2 = rowSums(across(c(SAS_16_T2, SAS_17_T2, SAS_18_T2)), na.rm = FALSE),
+    
+    # Total positive affect (sum across all positive items)
+    SAS_positive_T2 = rowSums(across(c(SAS_1_T2, SAS_2_T2, SAS_3_T2, SAS_4_T2, SAS_5_T2, SAS_6_T2, SAS_7_T2, SAS_8_T2, SAS_9_T2)), na.rm = FALSE),
+    
+    # Total negative affect (sum across all negative items)
+    SAS_negative_T2 = rowSums(across(c(SAS_10_T2, SAS_11_T2, SAS_12_T2, SAS_13_T2, SAS_14_T2, SAS_15_T2, SAS_16_T2, SAS_17_T2, SAS_18_T2)), na.rm = FALSE)
+  ) |> 
+  mutate(
+    # Positive affect subscales
+    SAS_calm_T3 = rowSums(across(c(SAS_1_T3, SAS_2_T3, SAS_3_T3)), na.rm = FALSE),
+    SAS_well_being_T3 = rowSums(across(c(SAS_4_T3, SAS_5_T3, SAS_6_T3)), na.rm = FALSE),
+    SAS_vigour_T3 = rowSums(across(c(SAS_7_T3, SAS_8_T3, SAS_9_T3)), na.rm = FALSE),
+    
+    # Negative affect subscales
+    SAS_depression_T3 = rowSums(across(c(SAS_10_T3, SAS_11_T3, SAS_12_T3)), na.rm = FALSE),
+    SAS_anxiety_T3 = rowSums(across(c(SAS_13_T3, SAS_14_T3, SAS_15_T3)), na.rm = FALSE),
+    SAS_anger_T3 = rowSums(across(c(SAS_16_T3, SAS_17_T3, SAS_18_T3)), na.rm = FALSE),
+    
+    # Total positive affect (sum across all positive items)
+    SAS_positive_T3 = rowSums(across(c(SAS_1_T3, SAS_2_T3, SAS_3_T3, SAS_4_T3, SAS_5_T3, SAS_6_T3, SAS_7_T3, SAS_8_T3, SAS_9_T3)), na.rm = FALSE),
+    
+    # Total negative affect (sum across all negative items)
+    SAS_negative_T3 = rowSums(across(c(SAS_10_T3, SAS_11_T3, SAS_12_T3, SAS_13_T3, SAS_14_T3, SAS_15_T3, SAS_16_T3, SAS_17_T3, SAS_18_T3)), na.rm = FALSE)
+  ) |> 
+  mutate(
+    # Positive affect subscales
+    SAS_calm_T4 = rowSums(across(c(SAS_1_T4, SAS_2_T4, SAS_3_T4)), na.rm = FALSE),
+    SAS_well_being_T4 = rowSums(across(c(SAS_4_T4, SAS_5_T4, SAS_6_T4)), na.rm = FALSE),
+    SAS_vigour_T4 = rowSums(across(c(SAS_7_T4, SAS_8_T4, SAS_9_T4)), na.rm = FALSE),
+    
+    # Negative affect subscales
+    SAS_depression_T4 = rowSums(across(c(SAS_10_T4, SAS_11_T4, SAS_12_T4)), na.rm = FALSE),
+    SAS_anxiety_T4 = rowSums(across(c(SAS_13_T4, SAS_14_T4, SAS_15_T4)), na.rm = FALSE),
+    SAS_anger_T4 = rowSums(across(c(SAS_16_T4, SAS_17_T4, SAS_18_T4)), na.rm = FALSE),
+    
+    # Total positive affect (sum across all positive items)
+    SAS_positive_T4 = rowSums(across(c(SAS_1_T4, SAS_2_T4, SAS_3_T4, SAS_4_T4, SAS_5_T4, SAS_6_T4, SAS_7_T4, SAS_8_T4, SAS_9_T4)), na.rm = FALSE),
+    
+    # Total negative affect (sum across all negative items)
+    SAS_negative_T4 = rowSums(across(c(SAS_10_T4, SAS_11_T4, SAS_12_T4, SAS_13_T4, SAS_14_T4, SAS_15_T4, SAS_16_T4, SAS_17_T4, SAS_18_T4)), na.rm = FALSE)
+  ) |> 
+  # loneliness
+  mutate(loneliness_T1 = loneliness_1_T1 + loneliness_2_T1 + loneliness_3_T1,
+         loneliness_T2 = loneliness_1_T2 + loneliness_2_T2 + loneliness_3_T2,
+         loneliness_T3 = loneliness_1_T3 + loneliness_2_T3 + loneliness_3_T3,
+         loneliness_T4 = loneliness_1_T4 + loneliness_2_T4 + loneliness_3_T4) |> 
+  # resilience
+  mutate(emo_res_2_T1_rev = 6 - emo_res_2_T1,  # Reverse score 
+         emo_res_4_T1_rev = 6 - emo_res_4_T1,  # Reverse score 
+         emo_res_6_T1_rev = 6 - emo_res_6_T1,  # Reverse score 
+         emo_res_2_T4_rev = 6 - emo_res_2_T4,  # Reverse score 
+         emo_res_4_T4_rev = 6 - emo_res_4_T4,  # Reverse score 
+         emo_res_6_T4_rev = 6 - emo_res_6_T4,  # Reverse score 
+         resilience_T1 = rowSums(across(c(emo_res_1_T1, emo_res_2_T1_rev, emo_res_3_T1, emo_res_4_T1_rev, emo_res_5_T1, emo_res_6_T1_rev)), na.rm = FALSE),
+         resilience_T4 = rowSums(across(c(emo_res_1_T4, emo_res_2_T4_rev, emo_res_3_T4, emo_res_4_T4_rev, emo_res_5_T4, emo_res_6_T4_rev)), na.rm = FALSE)) |> 
+  # mindfulness
+  mutate(across(mindfulness_1_T1:mindfulness_5_T1, ~ . - 1),
+         across(mindfulness_1_T4:mindfulness_5_T4, ~ . - 1)) %>%
+  mutate(mindfulness_T1 = rowSums(across(mindfulness_1_T1:mindfulness_5_T1), na.rm = FALSE),
+         mindfulness_T4 = rowSums(across(mindfulness_1_T4:mindfulness_5_T4), na.rm = FALSE),
+         mindfulness_rev_T1 = (5 * 6) - mindfulness_T1,
+         mindfulness_rev_T4 = (5 * 6) - mindfulness_T4) |> 
+  # flourishing scale
+  mutate(flourishing_T1 = rowSums(across(Flourish_1_T1:Flourish_8_T1), na.rm = FALSE),
+         flourishing_T4 = rowSums(across(Flourish_1_T4:Flourish_8_T4), na.rm = FALSE)) |> 
+  
+  # OTHER VARIABLES:
+  
+  # social fit
+  mutate(social_fit_2_T1_rev = 6 - social_fit_2_T1,  # Reverse score 
+         social_fit_2_T4_rev = 6 - social_fit_2_T4,  # Reverse score
+         social_fit_T1 = rowSums(across(c(social_fit_1_T1, social_fit_2_T1_rev)), na.rm = FALSE),
+         social_fit_T4 = rowSums(across(c(social_fit_1_T4, social_fit_2_T4_rev)), na.rm = FALSE)) |> 
+  # depression
+  mutate(across(starts_with("PHQ_4_"), ~ . - 1)) |> # Subtract 1 from all columns starting with "PHQ_4_"
+  mutate(depression_T1 = PHQ_4_1_T1 + PHQ_4_2_T1,
+         depression_T2 = PHQ_4_1_T2 + PHQ_4_2_T2,
+         depression_T3 = PHQ_4_1_T3 + PHQ_4_2_T3,
+         depression_T4 = PHQ_4_1_T4 + PHQ_4_2_T4) |> 
+  # anxiety
+  mutate(anxiety_T1 = PHQ_4_3_T1 + PHQ_4_4_T1,
+         anxiety_T2 = PHQ_4_3_T2 + PHQ_4_4_T2,
+         anxiety_T3 = PHQ_4_3_T3 + PHQ_4_4_T3,
+         anxiety_T4 = PHQ_4_3_T4 + PHQ_4_4_T4) |> 
+  # perceived stress
+  mutate(
+    Perceived_Stress_1_T1_scored = Perceived_Stress_1_T1 - 1,  # From 1-5 to 0-4
+    Perceived_Stress_2_T1_scored = 5 - Perceived_Stress_2_T1,  # Reverse score (5 - x)
+    Perceived_Stress_3_T1_scored = 5 - Perceived_Stress_3_T1,  # Reverse score (5 - x)
+    Perceived_Stress_4_T1_scored = Perceived_Stress_4_T1 - 1,  # From 1-5 to 0-4
+    perceived_stress_T1 = rowSums(across(Perceived_Stress_1_T1_scored:Perceived_Stress_4_T1_scored), na.rm = FALSE)) %>%
+  mutate(
+    Perceived_Stress_1_T2_scored = Perceived_Stress_1_T2 - 1,  # From 1-5 to 0-4
+    Perceived_Stress_2_T2_scored = 5 - Perceived_Stress_2_T2,  # Reverse score (5 - x)
+    Perceived_Stress_3_T2_scored = 5 - Perceived_Stress_3_T2,  # Reverse score (5 - x)
+    Perceived_Stress_4_T2_scored = Perceived_Stress_4_T2 - 1,  # From 1-5 to 0-4
+    perceived_stress_T2 = rowSums(across(Perceived_Stress_1_T2_scored:Perceived_Stress_4_T2_scored), na.rm = FALSE)) |> 
+  mutate(
+    Perceived_Stress_1_T3_scored = Perceived_Stress_1_T3 - 1,  # From 1-5 to 0-4
+    Perceived_Stress_2_T3_scored = 5 - Perceived_Stress_2_T3,  # Reverse score (5 - x)
+    Perceived_Stress_3_T3_scored = 5 - Perceived_Stress_3_T3,  # Reverse score (5 - x)
+    Perceived_Stress_4_T3_scored = Perceived_Stress_4_T3 - 1,  # From 1-5 to 0-4
+    perceived_stress_T3 = rowSums(across(Perceived_Stress_1_T3_scored:Perceived_Stress_4_T3_scored), na.rm = FALSE)) |> 
+  mutate(
+    Perceived_Stress_1_T4_scored = Perceived_Stress_1_T4 - 1,  # From 1-5 to 0-4
+    Perceived_Stress_2_T4_scored = 5 - Perceived_Stress_2_T4,  # Reverse score (5 - x)
+    Perceived_Stress_3_T4_scored = 5 - Perceived_Stress_3_T4,  # Reverse score (5 - x)
+    Perceived_Stress_4_T4_scored = Perceived_Stress_4_T4 - 1,  # From 1-5 to 0-4
+    perceived_stress_T4 = rowSums(across(Perceived_Stress_1_T4_scored:Perceived_Stress_4_T4_scored), na.rm = FALSE)) |>
+  # academic self efficacy
+  mutate(acad_selfefficacy_T1 = rowSums(across(acad_selfefficacy_1_T1:acad_selfefficacy_5_T1), na.rm = FALSE),
+         acad_selfefficacy_T4 = rowSums(across(acad_selfefficacy_1_T4:acad_selfefficacy_5_T4), na.rm = FALSE))
+
+# save data for computing Cronbach's alpha (to save reverse-coded items)
+cronbachs_alpha <- merged_data 
+
+# remove these for the rest of the code
+merged_data <- merged_data |> 
+  dplyr::select(-c(ends_with("_scored"))) |> 
+  dplyr::select(-c(emo_res_2_T1_rev, emo_res_4_T1_rev, emo_res_6_T1_rev, emo_res_2_T4_rev, emo_res_4_T4_rev, emo_res_6_T4_rev, social_fit_2_T1_rev, social_fit_2_T4_rev))
+```
+
+# Define factors
+
+```{r, include=FALSE}
+merged_data <- merged_data %>%
+  # sex
+  mutate(Sex_T1 = factor(Sex_T1, levels = c(1, 2, 3), labels = c("Male", "Female", "Intersex"))) |> 
+  #ethnicity 
+  mutate(Ethnicity_Mixed = ifelse(grepl(",", Ethnicity_T1), 1, 0),
+         Ethnicity_White = ifelse(Ethnicity_Mixed == 0 & grepl("1", Ethnicity_T1), 1, 0),
+         Ethnicity_Hispanic = ifelse(Ethnicity_Mixed == 0 & grepl("2", Ethnicity_T1), 1, 0),
+         Ethnicity_Black = ifelse(Ethnicity_Mixed == 0 & grepl("3", Ethnicity_T1), 1, 0),
+         Ethnicity_East_Asian = ifelse(Ethnicity_Mixed == 0 & grepl("4", Ethnicity_T1), 1, 0),
+         Ethnicity_South_Asian = ifelse(Ethnicity_Mixed == 0 & grepl("5", Ethnicity_T1), 1, 0),
+         Ethnicity_Native_Hawaiian_Pacific_Islander = ifelse(Ethnicity_Mixed == 0 & grepl("9", Ethnicity_T1), 1, 0),
+         Ethnicity_Middle_Eastern = ifelse(Ethnicity_Mixed == 0 & grepl("6", Ethnicity_T1), 1, 0),
+         Ethnicity_American_Indian = ifelse(Ethnicity_Mixed == 0 & grepl("7", Ethnicity_T1), 1, 0),
+         Ethnicity_Self_Identify = ifelse(Ethnicity_Mixed == 0 & grepl("8", Ethnicity_T1), 1, 0)) |> 
+  # international student
+  mutate(int_student_T1 = factor(int_student_T1, levels = c(1, 2), labels = c("Yes", "No"))) |> 
+  # condition
+  mutate(cond_T1 = factor(cond_T1),
+         cond_T2 = factor(cond_T2),
+         cond_T3 = factor(cond_T3),
+         cond_T4 = factor(cond_T4)) |> 
+  # SES
+  mutate(SES_num = as.numeric(SES_T1))
+```
+
+# Prep data
+
+## Make data long
+
+```{r}
+merged_data <- merged_data %>%
+  rename_with(~ gsub("_(T1|T2|T3|T4)$", "_\\1", .x)) # treat as suffix
+
+merged_data_long <- merged_data %>%
+  pivot_longer(cols = matches("_T[1234]$"),  # Matches columns ending with _T1, _T2, _T3, or _T4
+               names_to = c(".value", "time"),  # Split the variable name and time
+               names_pattern = "(.*)_T(1|2|3|4)") %>%  # Use a regex to split correctly
+  mutate(time = as.numeric(time))  # Convert the time column to numeric (1 for T1, 2 for T2, etc.)
+
+# fill in the demographic values for rest of timepoints
+merged_data_long <- merged_data_long %>%
+  group_by(unique_ID) %>%
+  fill(cond, Sex, Age, starts_with("Ethnicity"), int_student, int_student_country, starts_with("SES"), .direction = "downup") %>%
+  ungroup()
+
+#write.csv(merged_data_long, "./data/merged/merged_data.csv")
+```
+
+## Set contrasts
+
+```{r}
+# condition
+contrasts(merged_data_long$cond) <- cbind(flourish_vs_control=c(-1,1))
+```
+
+# Methods Section
+
+## Table 1 (by institution)
+
+```{r}
+data_demog <- merged_data_long |> 
+  dplyr::select(unique_ID, univ, Age, Sex, contains("Ethnicity"), int_student, int_student_country, SES, SES_num, cond) |> 
+  distinct() 
+
+# sample size
+data_demog %>%
+  distinct(univ, unique_ID) %>%
+  count(univ, name = "n") 
+
+# sex
+data_demog %>%
+  distinct(univ, Sex, unique_ID) %>% 
+  count(univ, Sex) %>%
+  group_by(univ) %>%
+  mutate(percent = round(100 * n / sum(n), 0)) %>%
+  select(univ, Sex, percent) %>%
+  ungroup()
+
+# age 
+data_demog %>%
+  distinct(univ, unique_ID, Age) %>% 
+  group_by(univ) %>%
+  summarise(
+    mean_age = round(mean(Age, na.rm = TRUE), 2),
+    sd_age   = round(sd(Age, na.rm = TRUE), 2))
+
+# race/ethnicity
+data_demog %>%
+  mutate(Ethnicity_Asian = if_else(Ethnicity_East_Asian == 1 | Ethnicity_South_Asian == 1, 1, 0)) %>%
+  group_by(univ) |> 
+  summarise(across(c(Ethnicity_White, Ethnicity_Hispanic, Ethnicity_Black, Ethnicity_Asian, Ethnicity_Native_Hawaiian_Pacific_Islander, Ethnicity_Middle_Eastern, Ethnicity_American_Indian, Ethnicity_Mixed, Ethnicity_Self_Identify), list(Count = ~sum(. == 1, na.rm = TRUE), Percent = ~round(mean(. == 1, na.rm = TRUE)*100,0)))) %>%
+  pivot_longer(cols = starts_with("Ethnicity_"), names_to = c("Ethnicity", ".value"), names_pattern = "Ethnicity_(.*)_(Count|Percent)$") %>%
+  kable(digits = 2)
+
+# SES
+data_demog %>%
+  group_by(univ) %>%
+  summarise(mean_SES = round(mean(SES_num, na.rm = TRUE), 2),
+            sd_SES   = round(sd(SES_num, na.rm = TRUE), 2))
+
+# international students
+data_demog %>%
+  group_by(univ) %>%
+  dplyr::summarise(Count   = sum(int_student == "Yes", na.rm = TRUE),
+            Percent = round(mean(int_student == "Yes", na.rm = TRUE) * 100, 1))
+```
+
+## Confirming random assignment to condition
+
+```{r}
+# % of participants who completed all four waves per condition 
+merged_data_long %>%
+  group_by(unique_ID, cond) %>%
+  summarise(num_timepoints_completed = sum(Finished == 1, na.rm = TRUE), .groups = "drop") %>%
+  count(cond, num_timepoints_completed, name = "n") %>%   
+  group_by(cond) %>%
+  mutate(Percent = round(100 * n / sum(n), 1)) %>%
+  filter(num_timepoints_completed == 4)
+
+# age across conditions
+
+lm(Age ~ cond, data = data_demog) |> summary()
+
+# sex across conditions
+
+sex_table <- table(data_demog$Sex, data_demog$cond)
+formattable(sex_table)
+
+sex_table <- sex_table[rowSums(sex_table) != 0, ] # remove rows with 0 for chi square
+
+chisq.test(sex_table)
+
+# institution across conditions
+
+univ_table <- table(data_demog$univ, data_demog$cond)
+formattable(univ_table)
+
+univ_table <- univ_table[rowSums(univ_table) != 0, ] # remove rows with 0 for chi square
+
+chisq.test(univ_table)
+```
+
+## Number of timepoints completed
+
+```{r}
+merged_data_long %>%
+  dplyr::group_by(unique_ID) %>%
+  dplyr::summarise(num_timepoints_completed = sum(Finished == 1, na.rm = TRUE)) %>%  # Count only rows where Finished is 1
+  dplyr::count(num_timepoints_completed)  # Count participants by number of completed timepoints
+
+merged_data_long %>%
+  group_by(unique_ID) %>%
+  summarise(num_timepoints_completed = sum(Finished == 1, na.rm = TRUE), .groups = "drop") %>%
+  count(num_timepoints_completed, name = "n") %>%
+  mutate(Percent = round(100 * n / sum(n), 1))
+```
+
+## Figure 2 (Study Timeline)
+
+### Sample size for each timepoint
+
+```{r}
+merged_data_long %>%
+  filter(Finished == 1) %>%  
+  group_by(time, cond) %>%
+  summarise(n_completed = n(), .groups = "drop") %>%
+  group_by(cond) %>%
+  mutate(pct_of_time1 = round(100 * n_completed / n_completed[time == 1], 0)) %>%
+  arrange(time, cond)
+```
+
+### Cronbach's alphas
+
+```{r}
+# Create function to compute raw alpha for a given item set
+compute_raw_alpha <- function(df_items, scale, subscale, time) {
+  a <- psych::alpha(df_items, warnings = FALSE, check.keys = FALSE)
+  tibble(
+    scale, subscale, time,
+    raw_alpha = round(a$total$raw_alpha, 2)
+  )
+}
+
+# Utility to build column names
+make_names <- function(prefix, idx, time) paste0(prefix, idx, "_", time)
+
+# Specification of scales
+spec <- list(
+  list(scale="SAS", subscale="Calm",       times=c("T1","T2","T3","T4"), builder=function(t) make_names("SAS_",  1:3,  t)),
+  list(scale="SAS", subscale="Wellbeing",  times=c("T1","T2","T3","T4"), builder=function(t) make_names("SAS_",  4:6,  t)),
+  list(scale="SAS", subscale="Vigour",     times=c("T1","T2","T3","T4"), builder=function(t) make_names("SAS_",  7:9,  t)),
+  list(scale="SAS", subscale="Positive",   times=c("T1","T2","T3","T4"), builder=function(t) make_names("SAS_",  1:9,  t)),
+  list(scale="SAS", subscale="Depression", times=c("T1","T2","T3","T4"), builder=function(t) make_names("SAS_", 10:12, t)),
+  list(scale="SAS", subscale="Anxiety",    times=c("T1","T2","T3","T4"), builder=function(t) make_names("SAS_", 13:15, t)),
+  list(scale="SAS", subscale="Anger",      times=c("T1","T2","T3","T4"), builder=function(t) make_names("SAS_", 16:18, t)),
+  list(scale="SAS", subscale="Negative",   times=c("T1","T2","T3","T4"), builder=function(t) make_names("SAS_", 10:18, t)),
+
+  list(scale="Loneliness", subscale="Total", times=c("T1","T2","T3","T4"),
+       builder=function(t) paste0("loneliness_", 1:3, "_", t)),
+
+  # Resilience (already includes *_rev items)
+  list(scale="Resilience", subscale="Total", times="T1",
+       builder=function(t) c("emo_res_1_T1","emo_res_2_T1_rev","emo_res_3_T1",
+                             "emo_res_4_T1_rev","emo_res_5_T1","emo_res_6_T1_rev")),
+  list(scale="Resilience", subscale="Total", times="T4",
+       builder=function(t) c("emo_res_1_T4","emo_res_2_T4_rev","emo_res_3_T4",
+                             "emo_res_4_T4_rev","emo_res_5_T4","emo_res_6_T4_rev")),
+
+  list(scale="Mindfulness", subscale="Total", times=c("T1","T4"),
+       builder=function(t) paste0("mindfulness_", 1:5, "_", t)),
+  list(scale="Flourishing", subscale="Total", times=c("T1","T4"),
+       builder=function(t) paste0("Flourish_", 1:8, "_", t))
+)
+
+# Run all alphas
+alphas_raw <- map_dfr(spec, function(s) {
+  map_dfr(s$times, function(ti) {
+    items <- s$builder(ti)
+    dat   <- dplyr::select(cronbachs_alpha, dplyr::all_of(items))
+    compute_raw_alpha(dat, s$scale, s$subscale, ti)
+  })
+}) 
+
+alphas_raw
+```
+
+# Engagement 
+
+```{r, error = FALSE}
+# active days and number of activities completed
+merged_data_long %>%
+  dplyr::filter(time == 4) |> # last timepoint since engagement is cumulative
+  dplyr::summarise(days_mean = round(mean(Engagement_1, na.rm = TRUE), 2),
+                   days_sd = round(sd(Engagement_1, na.rm = TRUE), 2),
+                   activities_mean = round(mean(Engagement_3, na.rm = TRUE), 2),
+                   activities_sd = round(sd(Engagement_3, na.rm = TRUE), 2)) 
+
+# number of participants using less than instructed
+merged_data_long %>%
+  filter(time == 4, cond == "flourish") %>%   # last timepoint & only flourish condition
+  summarise(less_than_instructed = sum(Engagement_1 < 12, na.rm = TRUE),
+            perc = round(100 * sum(Engagement_1 < 12, na.rm = TRUE) / n(), 1), .groups = "drop")
+```
+
+# Main Analyses (Table 3)
+
+## SAS: Positive
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(SAS_positive ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+lmer(SAS_positive ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(SAS_positive ~ cond, data = subset(merged_data_long, time == 1)) |> summary()
+
+# Time 2
+lm(SAS_positive ~ cond, data = subset(merged_data_long, time == 2)) |> summary()
+cohens_d(SAS_positive ~ cond, data = subset(merged_data_long, time == 2))
+
+# Time 3
+lm(SAS_positive ~ cond, data = subset(merged_data_long, time == 3)) |> summary()
+cohens_d(SAS_positive ~ cond, data = subset(merged_data_long, time == 3))
+
+# Time 4
+lm(SAS_positive ~ cond, data = subset(merged_data_long, time == 4)) |> summary()
+cohens_d(SAS_positive ~ cond, data = subset(merged_data_long, time == 4))
+
+# Flourish cond: over time
+lmer(SAS_positive ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(merged_data_long, cond == "flourish")) |> summary()
+
+# Control cond: over time
+model <- lmer(SAS_positive ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(merged_data_long, cond == "control"))
+summary(model)
+standardize_parameters(model)
+```
+
+## SAS: Calm 
+
+```{r, error = FALSE}
+## Test interaction term
+options(scipen = 999)  # turn off scientific notation
+lmer(SAS_calm ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+lmer(SAS_calm ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(SAS_calm ~ cond, data = subset(merged_data_long, time == 1)) |> summary()
+
+# Time 2
+lm(SAS_calm ~ cond, data = subset(merged_data_long, time == 2)) |> summary()
+cohens_d(SAS_calm ~ cond, data = subset(merged_data_long, time == 2))
+
+# Time 3
+lm(SAS_calm ~ cond, data = subset(merged_data_long, time == 3)) |> summary()
+cohens_d(SAS_calm ~ cond, data = subset(merged_data_long, time == 3))
+
+# Time 4
+lm(SAS_calm ~ cond, data = subset(merged_data_long, time == 4)) |> summary()
+cohens_d(SAS_calm ~ cond, data = subset(merged_data_long, time == 4))
+
+# Flourish cond: over time
+model <- lmer(SAS_calm ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(merged_data_long, cond == "flourish"))
+summary(model)
+standardize_parameters(model)
+
+# Control cond: over time
+lmer(SAS_calm ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(merged_data_long, cond == "control")) |> summary()
+```
+
+## SAS: Well-Being 
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(SAS_well_being ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+lmer(SAS_well_being ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(SAS_well_being ~ cond, data = subset(merged_data_long, time == 1)) |> summary()
+
+# Time 2
+lm(SAS_well_being ~ cond, data = subset(merged_data_long, time == 2)) |> summary()
+
+# Time 3
+lm(SAS_well_being ~ cond, data = subset(merged_data_long, time == 3)) |> summary()
+cohens_d(SAS_well_being ~ cond, data = subset(merged_data_long, time == 3))
+
+# Time 4
+lm(SAS_well_being ~ cond, data = subset(merged_data_long, time == 4)) |> summary()
+cohens_d(SAS_well_being ~ cond, data = subset(merged_data_long, time == 4))
+
+# Flourish cond: over time
+lmer(SAS_well_being ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(merged_data_long, cond == "flourish")) |> summary()
+
+# Control cond: over time
+model <- lmer(SAS_well_being ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(merged_data_long, cond == "control"))
+summary(model)
+standardize_parameters(model)
+```
+
+## SAS: Vigour 
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(SAS_vigour ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+lmer(SAS_vigour ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> standardize_parameters()
+```
+
+## SAS: Negative 
+
+```{r, error = FALSE}
+## Test interaction term
+
+options(scipen = 99)
+lmer(SAS_negative ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+```
+
+## Loneliness 
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(loneliness ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+lmer(loneliness ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(loneliness ~ cond, data = subset(merged_data_long, time == 1)) |> summary()
+
+# Time 2
+lm(loneliness ~ cond, data = subset(merged_data_long, time == 2)) |> summary()
+
+# Time 3
+lm(loneliness ~ cond, data = subset(merged_data_long, time == 3)) |> summary()
+
+# Time 4
+lm(loneliness ~ cond, data = subset(merged_data_long, time == 4)) |> summary()
+cohens_d(loneliness ~ cond, data = subset(merged_data_long, time == 4))
+
+# Flourish cond: over time
+model <- lmer(loneliness ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(merged_data_long, cond == "flourish"))
+summary(model)
+standardize_parameters(model)
+
+# Control cond: over time
+model <- lmer(loneliness ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(merged_data_long, cond == "control"))
+summary(model)
+standardize_parameters(model)
+```
+
+```{r, error = FALSE}
+# set up data for pre vs. post analyses
+data_factor <- merged_data_long |> 
+  dplyr::filter(time == 1 | time == 4) |> 
+  dplyr::mutate(time_factor = as.factor(time)) |> 
+  dplyr::mutate(cond_factor = as.factor(cond))
+
+contrasts(data_factor$time_factor) <- c(-1,1)
+```
+
+## Belonging 
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(cohesion ~ cond * I(time - 2.5)+ (1 | unique_ID) + (1 | univ), data = data_factor) |> summary()
+lmer(cohesion ~ cond * I(time - 2.5)+ (1 | unique_ID) + (1 | univ), data = data_factor) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(cohesion ~ cond, data = subset(data_factor, time == 1)) |> summary()
+
+# Time 4
+lm(cohesion ~ cond, data = subset(data_factor, time == 4)) |> summary()
+cohens_d(cohesion ~ cond, data = subset(data_factor, time == 4))
+
+# Flourish cond: over time
+model <- lmer(cohesion ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "flourish"))
+summary(model)
+standardize_parameters(model)
+
+# Control cond: over time
+lmer(cohesion ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "control")) |> summary()
+```
+
+## Closeness to School (IOS) 
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(ios ~ cond * I(time - 2.5)+ (1 | unique_ID) + (1 | univ), data = data_factor) |> summary()
+lmer(ios ~ cond * I(time - 2.5)+ (1 | unique_ID) + (1 | univ), data = data_factor) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(ios ~ cond, data = subset(data_factor, time == 1)) |> summary()
+
+# Time 4
+lm(ios ~ cond, data = subset(data_factor, time == 4)) |> summary()
+
+# Flourish cond: over time
+model <- lmer(ios ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "flourish")) 
+summary(model)
+standardize_parameters(model)
+
+# Control cond: over time
+options(scipen = 99)
+model <- lmer(ios ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "control"))
+summary(model)
+```
+
+## Resilience 
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(resilience ~ cond * I(time - 2.5)+ (1 | unique_ID) + (1 | univ), data = data_factor) |> summary()
+lmer(resilience ~ cond * I(time - 2.5)+ (1 | unique_ID) + (1 | univ), data = data_factor) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(resilience ~ cond, data = subset(data_factor, time == 1)) |> summary()
+
+# Time 4
+lm(resilience ~ cond, data = subset(data_factor, time == 4)) |> summary()
+
+# Flourish cond: over time
+model <- lmer(resilience ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "flourish")) 
+summary(model)
+standardize_parameters(model)
+
+# Control cond: over time
+model <- lmer(resilience ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "control"))
+summary(model)
+```
+
+## Mindfulness 
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(mindfulness_rev ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = data_factor) |> summary()
+lmer(mindfulness_rev ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = data_factor) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(mindfulness_rev ~ cond, data = subset(data_factor, time == 1)) |> summary()
+
+# Time 4
+lm(mindfulness_rev ~ cond, data = subset(data_factor, time == 4)) |> summary()
+cohens_d(mindfulness_rev ~ cond, data = subset(data_factor, time == 4))
+
+# Flourish cond: over time
+lmer(mindfulness_rev ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "flourish")) |> summary()
+
+# Control cond: over time
+model <- lmer(mindfulness_rev ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "control"))
+summary(model)
+standardize_parameters(model)
+```
+
+## Flourishing Score 
+
+```{r, error = FALSE}
+## Test interaction term
+
+lmer(flourishing ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = data_factor) |> summary()
+lmer(flourishing ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = data_factor) |> standardize_parameters()
+
+## Probe significant interaction 
+
+# Time 1
+lm(flourishing ~ cond, data = subset(data_factor, time == 1)) |> summary()
+
+# Time 4
+lm(flourishing ~ cond, data = subset(data_factor, time == 4)) |> summary()
+
+# Flourish cond: over time
+lmer(flourishing ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "flourish")) |> summary()
+
+# Control cond: over time
+model <- lmer(flourishing ~ I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = subset(data_factor, cond == "control"))
+summary(model)
+standardize_parameters(model)
+```
+
+# Visualizations
+
+```{r}
+plot_summary <- function(data, y_var, y_label, filename, 
+                         y_breaks = waiver(), 
+                         y_limits = NULL, 
+                         x_breaks = c(1, 2, 3, 4), 
+                         x_labels = c("0", "2", "4", "6"), 
+                         width = 5, height = 3) {
+  
+  p <- ggplot(data, aes(x = time, y = .data[[y_var]], color = cond, group = cond)) +
+    # geom_jitter(width = 0.1, size = 2, alpha = 0.6) +  # Optional individual points
+    geom_errorbar(stat = "summary", fun.data = mean_se, width = 0.2, na.rm = TRUE) +
+    geom_line(stat = "summary", fun = mean, linewidth = 1, na.rm = TRUE) +
+    geom_point(stat = "summary", fun = mean, size = 2.25, na.rm = TRUE) +
+    labs(x = "Week",
+         y = y_label,
+         color = "Condition",
+         linetype = "Condition",
+         shape = "Condition") +
+    scale_x_continuous(breaks = x_breaks, labels = x_labels) +
+    scale_y_continuous(breaks = y_breaks) +
+    scale_color_manual(values = c("flourish" = "#4789a3", "control" = "#b4705a"),
+                       labels = c("Control", "Treatment")) +
+    theme(
+      panel.grid.major = element_blank(), # remove major grid lines
+      panel.grid.minor = element_blank(), # remove minor grid lines
+      panel.background = element_rect(fill = "white"), # set background to white
+
+      axis.text = element_text(size = 13), # set tick label size
+      axis.text.x = element_text(margin = margin(t = 8)), # add space above x-axis tick labels
+      axis.text.y = element_text(margin = margin(r = 8)), # add space to the right of y-axis tick labels
+      axis.title = element_text(size = 16, face = "bold"), # make axis titles bold and larger
+      axis.title.x = element_text(margin = margin(t = 10)), # add margin between x-axis ticks and label
+      axis.title.y = element_text(margin = margin(r = 10)), # add margin between y-axis ticks and label
+      axis.line.x = element_line(color = "#7D7D7D", linewidth = 0.5), # draw visible x-axis line
+      axis.line.y = element_line(color = "#7D7D7D", linewidth = 0.5), # draw visible y-axis line
+
+      legend.title = element_text(size = 15, face = "bold"), # style legend title to match axis titles
+      legend.text = element_text(size = 13) # style legend labels to match axis ticks
+    )
+  
+  if (!is.null(y_limits)) {
+    p <- p + coord_cartesian(ylim = y_limits)
+  }
+  
+  return(p)
+}
+```
+
+```{r}
+# plot SAS: positive
+plot_summary(merged_data_long, "SAS_positive", "Positive Affect (0–36)")
+# ggsave("./figure_SAS_positive.png", width = 5, height = 3)
+
+# plot SAS: calm
+plot_summary(merged_data_long, "SAS_calm", "Calm (0–12)")
+# ggsave("./figure_SAS_calm.png", width = 5, height = 3)
+
+# plot SAS: well-being
+plot_summary(merged_data_long, "SAS_well_being", "Well-Being (0–12)", y_breaks = seq(0, 12, by = 0.5), y_limits = c(6.25, 7.5))
+# ggsave("./figure_SAS_wellbeing.png", width = 5, height = 3)
+
+# plot SAS: vigour
+plot_summary(merged_data_long, "SAS_vigour", "Vigour (0–12)", y_breaks = seq(0, 12, by = 0.5), y_limits = c(4.85, 6.25))
+# ggsave("./figure_SAS_vigour.png", width = 5, height = 3)
+
+# plot SAS: negative
+plot_summary(merged_data_long, "SAS_negative", "Negative Affect (0–36)", y_breaks = seq(0, 36, by = 1), y_limits = c(11.25, 14))
+# ggsave("./figure_SAS_negative.png", width = 5, height = 3)
+
+# plot loneliness
+plot_summary(merged_data_long, "loneliness", "Loneliness (3–9)")
+# ggsave("./figure_loneliness.png", width = 5, height = 3)
+
+# plot cohesion
+plot_summary(merged_data_long, "cohesion", "Belonging (0–10)", x_breaks = c(1, 4), x_labels = c("0", "6"), y_breaks = seq(0, 10, 0.25))
+# ggsave("./figure_belonging.png", width = 5, height = 3)
+
+# plot IOS (closeness to schol)
+plot_summary(merged_data_long, "ios", "School Closeness (1–7)", x_breaks = c(1, 4), x_labels = c("0", "6"), y_breaks = seq(1, 7, by = 0.25), y_limits = c(3.1, 3.65))
+# ggsave("./figure_IOS.png", width = 5, height = 3)
+
+# plot resilience
+plot_summary(merged_data_long, "resilience", "Resilience (6–30)", x_breaks = c(1, 4), x_labels = c("0", "6"), y_breaks = seq(6, 30, 0.5), y_limits = c(18.3, 19.6))
+# ggsave("./figure_resilience.png", width = 5, height = 3)
+
+# plot mindfulness
+plot_summary(merged_data_long, "mindfulness_rev", "Mindfulness (0–30)", x_breaks = c(1, 4), x_labels = c("0", "6"), y_breaks = seq(0, 30, 1), y_limits = c(12.9, 16))
+# ggsave("./figure_mindfulness.png", width = 5, height = 3)
+
+# plot flourishing
+plot_summary(merged_data_long, "flourishing", "Flourishing (8–56)", x_breaks = c(1, 4), x_labels = c("0", "6"), y_breaks = seq(8, 56, 1), y_limits = c(43.5, 46))
+# ggsave("./figure_flourishing.png", width = 5, height = 3)
+```
+
+# Supplement: 
+
+## Cronbach's alphas and correlations for other vars
+
+```{r}
+## Depression T1 r = .65
+cor.test(merged_data$PHQ_4_1_T1, merged_data$PHQ_4_2_T1, method = "pearson")
+
+## Depression T2 r = .68
+cor.test(merged_data$PHQ_4_1_T2, merged_data$PHQ_4_2_T2, method = "pearson")
+
+## Depression T3 r = .64
+cor.test(merged_data$PHQ_4_1_T3, merged_data$PHQ_4_2_T3, method = "pearson")
+
+## Depression T4 r = .68
+cor.test(merged_data$PHQ_4_1_T4, merged_data$PHQ_4_2_T4, method = "pearson")
+
+
+## Anxiety T1 r = .73
+cor.test(merged_data$PHQ_4_3_T1, merged_data$PHQ_4_4_T1, method = "pearson")
+
+## Anxiety T2 r = .75
+cor.test(merged_data$PHQ_4_3_T2, merged_data$PHQ_4_4_T2, method = "pearson")
+
+## Anxiety T3 r = .74
+cor.test(merged_data$PHQ_4_3_T3, merged_data$PHQ_4_4_T3, method = "pearson")
+
+## Anxiety T4 r = .73
+cor.test(merged_data$PHQ_4_3_T4, merged_data$PHQ_4_4_T4, method = "pearson")
+
+
+## Stress T1 .73
+compute_raw_alpha(select(cronbachs_alpha, Perceived_Stress_1_T1_scored, Perceived_Stress_2_T1_scored, Perceived_Stress_3_T1_scored, Perceived_Stress_4_T1_scored), "Perceived Stress", "Total", "T1")
+
+## Stress T2 .66
+compute_raw_alpha(select(cronbachs_alpha, Perceived_Stress_1_T2_scored, Perceived_Stress_2_T2_scored, Perceived_Stress_3_T2_scored, Perceived_Stress_4_T2_scored), "Perceived Stress", "Total", "T2")
+
+## Stress T3 .72
+compute_raw_alpha(select(cronbachs_alpha, Perceived_Stress_1_T3_scored, Perceived_Stress_2_T3_scored, Perceived_Stress_3_T3_scored, Perceived_Stress_4_T3_scored), "Perceived Stress", "Total", "T3")
+
+## Stress T4 .72
+compute_raw_alpha(select(cronbachs_alpha, Perceived_Stress_1_T4_scored, Perceived_Stress_2_T4_scored, Perceived_Stress_3_T4_scored, Perceived_Stress_4_T4_scored), "Perceived Stress", "Total", "T4")
+
+
+## Academic Self-Efficacy T1 .74
+compute_raw_alpha(select(cronbachs_alpha, acad_selfefficacy_1_T1:acad_selfefficacy_5_T1), "Academic Self-Efficacy", "Total", "T1")
+
+## Academic Self-Efficacy T4 .72
+compute_raw_alpha(select(merged_data, acad_selfefficacy_1_T4:acad_selfefficacy_5_T4), "Academic Self-Efficacy", "Total", "T4")
+
+
+## Social Fit T1 r = .20
+cor.test(cronbachs_alpha$social_fit_1_T1, cronbachs_alpha$social_fit_2_T1_rev, method = "pearson")
+
+## Social Fit T4 r = .23
+cor.test(cronbachs_alpha$social_fit_1_T4, cronbachs_alpha$social_fit_2_T4_rev, method = "pearson")
+```
+
+## Analyses
+
+### Depression
+
+```{r, error = FALSE}
+## Test interaction term
+lmer(depression ~ cond * time + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+```
+
+### Anxiety
+
+```{r, error = FALSE}
+## Test interaction term
+lmer(anxiety ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+lmer(anxiety ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> standardize_parameters()
+```
+
+### Perceived Stress 
+
+```{r, error = FALSE}
+## Test interaction term
+lmer(perceived_stress ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+lmer(perceived_stress ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> standardize_parameters()
+```
+
+### Academic Self-Efficacy 
+
+```{r, error = FALSE}
+## Test interaction term
+lmer(acad_selfefficacy ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+```
+
+### SAS: Depression 
+
+```{r, error = FALSE}
+## Test interaction term
+lmer(SAS_depression ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+```
+
+### SAS: Anxiety 
+
+```{r, error = FALSE}
+## Test interaction term
+lmer(SAS_anxiety ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+```
+
+### SAS: Anger 
+
+```{r, error = FALSE}
+## Test interaction term
+lmer(SAS_anger ~ cond * I(time - 2.5) + (1 | unique_ID) + (1 | univ), data = merged_data_long) |> summary()
+```
+
+
+## Demographic Moderators
+
+Note: We ran 35 separate models, leading to a Bonferroni-adjusted alpha of .0014 (0.05/35).
+
+### Prep: Ethnicity variable
+
+```{r}
+# prep ethnicity
+ethnicity_vars <- c("Ethnicity_White", "Ethnicity_Hispanic", "Ethnicity_Black", "Ethnicity_American_Indian", "Ethnicity_East_Asian", "Ethnicity_South_Asian", "Ethnicity_Native_Hawaiian_Pacific_Islander", "Ethnicity_Middle_Eastern", "Ethnicity_Mixed", "Ethnicity_Self_Identify") 
+
+merged_data_long$Ethnicity_categ <- apply(merged_data_long[ethnicity_vars], 1, function(row) {
+  if (all(is.na(row))) {
+    return(NA)  # return NA if all values are NA
+  } else if (sum(row, na.rm = TRUE) == 1) {
+    return(gsub("Ethnicity_", "", ethnicity_vars[which(row == 1)]))  # return the matching category
+  } else {
+    return(NA)  # if there's 0 or more than 1 marked, return NA as a safeguard
+  }
+})
+
+# binarize to preserve power
+merged_data_long$Ethnicity_WhitePOC <- ifelse(merged_data_long$Ethnicity_categ == "White", "White", 
+                                       ifelse(is.na(merged_data_long$Ethnicity_categ), NA, "POC"))
+merged_data_long$Ethnicity_WhitePOC <- factor(merged_data_long$Ethnicity_WhitePOC, levels = c("White", "POC"))
+
+data_demog <- merged_data_long |> 
+  dplyr::mutate(Age_c = Age - mean(Age, na.rm = TRUE),
+                SES_c = SES_num - mean(SES_num, na.rm = TRUE),
+                time_c = time - mean(time, na.rm = TRUE))
+```
+
+### SAS: Positive  
+
+```{r}
+lmer(SAS_positive ~ time_c * Age_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary() # SIG
+lmer(SAS_positive ~ time_c * Sex * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+lmer(SAS_positive ~ time_c * int_student * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+lmer(SAS_positive ~ time_c * SES_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+lmer(SAS_positive ~ time_c * Ethnicity_WhitePOC * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+
+# probe age
+
+lmer(SAS_positive ~ time_c * cond + (1 | unique_ID) + (1 | univ), data = subset(data_demog, Age_c > 0)) |> summary() 
+
+lmer(SAS_positive ~ time_c * cond + (1 | unique_ID) + (1 | univ), data = subset(data_demog, Age_c <= 0)) |> summary()
+
+data_demog <- data_demog %>% 
+  mutate(neg_half = factor(
+    ifelse(Age_c <= median(Age_c, na.rm = TRUE),
+           "Lower half\n(baseline age ≤ median)",
+           "Upper half\n(baseline age > median)"),
+    levels = c("Lower half\n(baseline age ≤ median)",
+               "Upper half\n(baseline age > median)"))
+  )
+
+ggplot(subset(data_demog, !is.na(neg_half)),
+       aes(x = time_c, y = SAS_positive, color = cond, group = cond)) +
+  geom_errorbar(stat = "summary", fun.data = mean_se, width = 0.2) +
+  geom_line(stat = "summary", fun = mean, size = 1) +
+  geom_point(stat = "summary", fun = mean, size = 2.25) +
+  facet_wrap(~ neg_half)
+```
+
+### Loneliness  
+
+```{r}
+lmer(loneliness ~ time_c * Age_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+lmer(loneliness ~ time_c * Sex * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+lmer(loneliness ~ time_c * int_student * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+lmer(loneliness ~ time_c * SES_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+lmer(loneliness ~ time_c * Ethnicity_WhitePOC * cond + (1 | unique_ID) + (1 | univ), data = data_demog) |> summary()
+```
+
+```{r}
+# (For DVs that were only measured at T1 and T4, summarise engagement numbers)
+
+data_demog_prepost <- data_demog |>
+  dplyr::filter(time %in% c(1, 4))
+
+data_demog_prepost <- data_demog_prepost |> 
+  dplyr::mutate(time_c = time - mean(time, na.rm = TRUE))
+```
+
+### Belonging  
+
+```{r}
+lmer(cohesion ~ time_c * Age_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(cohesion ~ time_c * Sex * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(cohesion ~ time_c * int_student * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(cohesion ~ time_c * SES_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(cohesion ~ time_c * Ethnicity_WhitePOC * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+```
+
+### Closeness to School (IOS)
+
+```{r}
+lmer(ios ~ time_c * Age_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(ios ~ time_c * Sex * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(ios ~ time_c * int_student * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(ios ~ time_c * SES_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(ios ~ time_c * Ethnicity_WhitePOC * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+```
+
+### Resilience  
+
+```{r}
+lmer(resilience ~ time_c * Age_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(resilience ~ time_c * Sex * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(resilience ~ time_c * int_student * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(resilience ~ time_c * SES_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(resilience ~ time_c * Ethnicity_WhitePOC * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+```
+
+### Mindfulness  
+
+```{r}
+lmer(mindfulness_rev ~ time_c * Age_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(mindfulness_rev ~ time_c * Sex * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(mindfulness_rev ~ time_c * int_student * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(mindfulness_rev ~ time_c * SES_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(mindfulness_rev ~ time_c * Ethnicity_WhitePOC * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+```
+
+### Flourishing Score  
+
+```{r}
+lmer(flourishing ~ time_c * Age_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(flourishing ~ time_c * Sex * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(flourishing ~ time_c * int_student * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(flourishing ~ time_c * SES_c * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+lmer(flourishing ~ time_c * Ethnicity_WhitePOC * cond + (1 | unique_ID) + (1 | univ), data = data_demog_prepost) |> summary()
+```
+
+## Mental Health Status Moderators
+
+Note: We ran 28 separate models, leading to a Bonferroni-adjusted alpha of .0018 (0.05/28).
+
+### Prep: Baseline mental health vars
+
+```{r}
+baseline_vars <- c("depression", "anxiety", "loneliness", "perceived_stress")
+
+baseline_data <- subset(merged_data_long, time == 1)[, c("unique_ID", baseline_vars)]
+colnames(baseline_data)[-1] <- paste0(baseline_vars, "_baseline")
+
+merged_data_long <- merge(merged_data_long, baseline_data, by = "unique_ID", all.x = TRUE)
+
+data_baseline <- merged_data_long |> 
+  dplyr::mutate(
+    depression_baseline_c = depression_baseline - mean(depression_baseline, na.rm = TRUE),
+    anxiety_baseline_c = anxiety_baseline - mean(anxiety_baseline, na.rm = TRUE),
+    loneliness_baseline_c = loneliness_baseline - mean(loneliness_baseline, na.rm = TRUE),
+    perceived_stress_baseline_c = perceived_stress_baseline - mean(perceived_stress_baseline, na.rm = TRUE)) |> 
+  dplyr::mutate(time_c = time - mean(time, na.rm = TRUE))
+```
+
+### SAS: Positive
+
+```{r}
+lmer(SAS_positive ~ time_c * depression_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline) |> summary() 
+lmer(SAS_positive ~ time_c * anxiety_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline) |> summary() 
+lmer(SAS_positive ~ time_c * loneliness_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline) |> summary() 
+lmer(SAS_positive ~ time_c * perceived_stress_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline) |> summary() 
+```
+
+### Loneliness  
+
+```{r}
+lmer(loneliness ~ time_c * depression_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline) |> summary() 
+lmer(loneliness ~ time_c * anxiety_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline) |> summary() 
+lmer(loneliness ~ time_c * loneliness_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline) |> summary() 
+lmer(loneliness ~ time_c * perceived_stress_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline) |> summary() 
+```
+
+```{r}
+# (For DVs that were only measured at T1 and T4, summarise engagement numbers)
+
+data_baseline_prepost <- data_baseline |>
+  dplyr::filter(time %in% c(1, 4))
+
+data_baseline_prepost <- data_baseline_prepost |> 
+  dplyr::mutate(time_c = time - mean(time, na.rm = TRUE))
+```
+
+### Belonging
+
+```{r}
+lmer(cohesion ~ time_c * depression_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(cohesion ~ time_c * anxiety_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() # Significant: more baseline anxiety: greater cohesion improvements
+lmer(cohesion ~ time_c * loneliness_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(cohesion ~ time_c * perceived_stress_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary()
+
+# probe anxiety moderator
+
+lmer(cohesion ~ time_c * cond + (1 | unique_ID) + (1 | univ), data = subset(data_baseline_prepost, anxiety_baseline_c > 0)) |> summary() 
+
+lmer(cohesion ~ time_c * cond + (1 | unique_ID) + (1 | univ), data = subset(data_baseline_prepost, anxiety_baseline_c <= 0)) |> summary() 
+
+data_baseline_prepost <- data_baseline_prepost %>% 
+  mutate(neg_half = factor(
+    ifelse(anxiety_baseline_c <= median(anxiety_baseline_c, na.rm = TRUE),
+           "Lower half\n(baseline anxiety ≤ median)",
+           "Upper half\n(baseline anxiety > median)"),
+    levels = c("Lower half\n(baseline anxiety ≤ median)",
+               "Upper half\n(baseline anxiety > median)"))
+  )
+
+
+ggplot(subset(data_baseline_prepost, !is.na(neg_half)),
+       aes(x = time_c, y = SAS_positive, color = cond, group = cond)) +
+  geom_errorbar(stat = "summary", fun.data = mean_se, width = 0.2) +
+  geom_line(stat = "summary", fun = mean, size = 1) +
+  geom_point(stat = "summary", fun = mean, size = 2.25) +
+  facet_wrap(~ neg_half)
+```
+
+### Closeness to School (IOS)
+
+```{r}
+lmer(ios ~ time_c * depression_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(ios ~ time_c * anxiety_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(ios ~ time_c * loneliness_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(ios ~ time_c * perceived_stress_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary()
+```
+
+### Resilience
+
+```{r}
+lmer(resilience ~ time_c * depression_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(resilience ~ time_c * anxiety_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(resilience ~ time_c * loneliness_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(resilience ~ time_c * perceived_stress_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary()
+```
+
+### Mindfulness
+
+```{r}
+lmer(mindfulness_rev ~ time_c * depression_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(mindfulness_rev ~ time_c * anxiety_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(mindfulness_rev ~ time_c * loneliness_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(mindfulness_rev ~ time_c * perceived_stress_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary()
+```
+
+### Flourishing Score
+
+```{r}
+lmer(flourishing ~ time_c * depression_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() # Significant
+lmer(flourishing ~ time_c * anxiety_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(flourishing ~ time_c * loneliness_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary() 
+lmer(flourishing ~ time_c * perceived_stress_baseline_c * cond + (1 | unique_ID) + (1 | univ), data = data_baseline_prepost) |> summary()
+
+# probe depression moderator
+
+lmer(flourishing ~ time_c * cond + (1 | unique_ID) + (1 | univ), data = subset(data_baseline_prepost, depression_baseline_c > 0)) |> summary() 
+
+lmer(flourishing ~ time_c * cond + (1 | unique_ID) + (1 | univ), data = subset(data_baseline_prepost, depression_baseline_c <= 0)) |> summary() 
+
+data_baseline_prepost <- data_baseline_prepost %>% 
+  mutate(neg_half = factor(
+    ifelse(depression_baseline_c <= median(depression_baseline_c, na.rm = TRUE),
+           "Lower half\n(baseline depression ≤ median)",
+           "Upper half\n(baseline depression > median)"),
+    levels = c("Lower half\n(baseline depression ≤ median)",
+               "Upper half\n(baseline depression > median)"))
+  )
+
+
+ggplot(subset(data_baseline_prepost, !is.na(neg_half)),
+       aes(x = time_c, y = flourishing, color = cond, group = cond)) +
+  geom_errorbar(stat = "summary", fun.data = mean_se, width = 0.2) +
+  geom_line(stat = "summary", fun = mean, size = 1) +
+  geom_point(stat = "summary", fun = mean, size = 2.25) +
+  facet_wrap(~ neg_half)
+```

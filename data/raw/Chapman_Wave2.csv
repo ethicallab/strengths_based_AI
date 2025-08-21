@@ -1,0 +1,261 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,PHQ_4_1,PHQ_4_2,PHQ_4_3,PHQ_4_4,loneliness_1,loneliness_2,loneliness_3,Perceived_Stress_1,Perceived_Stress_2,Perceived_Stress_3,Perceived_Stress_4,SAS_1,SAS_2,SAS_3,SAS_4,SAS_5,SAS_6,SAS_7,SAS_8,SAS_9,SAS_10,SAS_11,SAS_12,SAS_13,SAS_14,SAS_15,SAS_16,SAS_17,SAS_18,learn_new_flourish,Engagement_1,Engagement_2,Engagement_3,learn_new_control,univ,id,cond,unique_ID
+Start Date,End Date,Response Type,IP Address,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Recipient Last Name,Recipient First Name,Recipient Email,External Data Reference,Location Latitude,Location Longitude,Distribution Channel,User Language,"Over the last 2 weeks, how often have you been bothered by any of the following problems? - Little interest or pleasure in doing things","Over the last 2 weeks, how often have you been bothered by any of the following problems? - Feeling down, depressed or hopeless","Over the last 2 weeks, how often have you been bothered by any of the following problems? - Feeling nervous, anxious or on edge","Over the last 2 weeks, how often have you been bothered by any of the following problems? - Not being able to stop or control worrying",How often do you feel that you lack companionship?,How often do you feel left out?,How often do you feel isolated from others?,"The questions in this scale ask you about your feelings and thoughts during THE LAST TWO WEEKS. In each case, please indicate your response by selecting the response representing HOW OFTEN you felt or thought a certain way. - In the last two weeks, how often have you felt that you were unable to control the important things in your life?","The questions in this scale ask you about your feelings and thoughts during THE LAST TWO WEEKS. In each case, please indicate your response by selecting the response representing HOW OFTEN you felt or thought a certain way. - In the last two weeks, how often have you felt confident about your ability to handle your personal problems?","The questions in this scale ask you about your feelings and thoughts during THE LAST TWO WEEKS. In each case, please indicate your response by selecting the response representing HOW OFTEN you felt or thought a certain way. - In the last two weeks, how often have you felt that things were going your way?","The questions in this scale ask you about your feelings and thoughts during THE LAST TWO WEEKS. In each case, please indicate your response by selecting the response representing HOW OFTEN you felt or thought a certain way. - In the last two weeks, how often have you felt difficulties were piling up so high that you could not overcome them?",Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - calm,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - at ease,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - relaxed,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - happy,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - cheerful,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - pleased,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - full of pep,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - lively,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - energetic,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - sad,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - unhappy,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - depressed,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - on edge,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - tense,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - nervous,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - hostile,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - angry,Please rate on a scale of 0 (not at all accurate) to 4 (extremely accurate) the extent to which each adjective accurately describes how you felt within the past two weeks. - resentful,"So far, have you learned anything new from using the Flourish app? If so, what have you learned?","Next, we'd like to learn about how you've been using the Flourish app over the past two weeks.
+
+
+
+Please open the app and navigate to the Insights page (the right-most option in the bottom menu bar, which looks like this: ).
+
+
+
+Then, scroll down to the section labeled ""PROGRESS"" and fill in the numbers that are shown on the screen.
+
+
+
+For example, you might see a section like this:
+
+
+
+
+
+
+
+In this case:
+
+	Active days: 76
+	Reports: 7
+	Activities: 31
+
+
+
+(You can ignore the ""streaked weeks"".)
+
+Please enter the numbers below: - Active days","Next, we'd like to learn about how you've been using the Flourish app over the past two weeks.
+
+
+
+Please open the app and navigate to the Insights page (the right-most option in the bottom menu bar, which looks like this: ).
+
+
+
+Then, scroll down to the section labeled ""PROGRESS"" and fill in the numbers that are shown on the screen.
+
+
+
+For example, you might see a section like this:
+
+
+
+
+
+
+
+In this case:
+
+	Active days: 76
+	Reports: 7
+	Activities: 31
+
+
+
+(You can ignore the ""streaked weeks"".)
+
+Please enter the numbers below: - Reports","Next, we'd like to learn about how you've been using the Flourish app over the past two weeks.
+
+
+
+Please open the app and navigate to the Insights page (the right-most option in the bottom menu bar, which looks like this: ).
+
+
+
+Then, scroll down to the section labeled ""PROGRESS"" and fill in the numbers that are shown on the screen.
+
+
+
+For example, you might see a section like this:
+
+
+
+
+
+
+
+In this case:
+
+	Active days: 76
+	Reports: 7
+	Activities: 31
+
+
+
+(You can ignore the ""streaked weeks"".)
+
+Please enter the numbers below: - Activities",Did you learn something new from responding to this survey?,univ,id,cond,unique_ID
+"{""ImportId"":""startDate"",""timeZone"":""America/Denver""}","{""ImportId"":""endDate"",""timeZone"":""America/Denver""}","{""ImportId"":""status""}","{""ImportId"":""ipAddress""}","{""ImportId"":""progress""}","{""ImportId"":""duration""}","{""ImportId"":""finished""}","{""ImportId"":""recordedDate"",""timeZone"":""America/Denver""}","{""ImportId"":""_recordId""}","{""ImportId"":""recipientLastName""}","{""ImportId"":""recipientFirstName""}","{""ImportId"":""recipientEmail""}","{""ImportId"":""externalDataReference""}","{""ImportId"":""locationLatitude""}","{""ImportId"":""locationLongitude""}","{""ImportId"":""distributionChannel""}","{""ImportId"":""userLanguage""}","{""ImportId"":""QID1_1""}","{""ImportId"":""QID1_2""}","{""ImportId"":""QID1_3""}","{""ImportId"":""QID1_4""}","{""ImportId"":""QID20""}","{""ImportId"":""QID21""}","{""ImportId"":""QID22""}","{""ImportId"":""QID23_1""}","{""ImportId"":""QID23_2""}","{""ImportId"":""QID23_3""}","{""ImportId"":""QID23_4""}","{""ImportId"":""QID99_1""}","{""ImportId"":""QID99_2""}","{""ImportId"":""QID99_3""}","{""ImportId"":""QID99_4""}","{""ImportId"":""QID99_5""}","{""ImportId"":""QID99_6""}","{""ImportId"":""QID99_7""}","{""ImportId"":""QID99_8""}","{""ImportId"":""QID99_9""}","{""ImportId"":""QID99_10""}","{""ImportId"":""QID99_11""}","{""ImportId"":""QID99_12""}","{""ImportId"":""QID99_13""}","{""ImportId"":""QID99_14""}","{""ImportId"":""QID99_15""}","{""ImportId"":""QID99_16""}","{""ImportId"":""QID99_17""}","{""ImportId"":""QID99_18""}","{""ImportId"":""QID90_TEXT""}","{""ImportId"":""QID94_1""}","{""ImportId"":""QID94_2""}","{""ImportId"":""QID94_3""}","{""ImportId"":""QID86_TEXT""}","{""ImportId"":""univ""}","{""ImportId"":""id""}","{""ImportId"":""cond""}","{""ImportId"":""unique_ID""}"
+10/30/24 15:50,10/30/24 15:51,0,206.211.151.44,100,90,1,10/30/24 15:51,R_1INHCmYm460QhMd,,,,1040C,33.7871,-117.8821,anonymous,EN,4,4,4,4,3,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,5,1,2,1,5,5,1,5,3,,,,,"yes
+",,7369,control,
+10/30/24 15:53,10/30/24 15:58,0,206.211.151.30,100,318,1,10/30/24 15:58,R_7dnKwvXu0fIhOu1,,,,128O,33.7871,-117.8821,anonymous,EN,1,1,3,2,1,1,2,2,4,4,3,4,3,3,5,4,4,3,4,4,1,1,1,3,3,2,1,2,1,I learned that journaling about three good things can really help put my life into context. Even through the stress I have it pretty good.,13,3,22,,,7360,flourish,
+10/30/24 16:19,10/30/24 16:21,0,206.211.151.14,100,150,1,10/30/24 16:21,R_5P71cENB4FBe5wv,,,,205A,33.7871,-117.8821,anonymous,EN,1,1,2,1,1,1,1,3,4,3,3,3,3,3,3,3,2,2,3,3,3,2,2,2,2,3,2,2,2,,,,,No,,7372,control,
+10/30/24 17:06,10/30/24 17:09,0,206.211.154.40,100,152,1,10/30/24 17:09,R_7fkAjOA1wA0as5X,,,,1099R,33.7858,-117.8448,anonymous,EN,1,2,3,3,3,3,3,2,3,1,4,2,1,1,2,2,3,1,2,1,5,4,3,5,5,5,1,3,5,,,,,I learned that my emotions fluctuate frequently and its difficult to keep it all straight.,,7517,control,
+10/30/24 17:12,10/30/24 17:15,0,206.211.154.33,100,177,1,10/30/24 17:15,R_3OvHzLt5GlsBlKx,,,,763N,33.7858,-117.8448,anonymous,EN,2,2,3,3,2,2,2,3,3,4,3,2,2,2,4,3,4,3,4,4,3,2,3,2,4,3,1,1,1,N/A,40,9,20,,,8087,flourish,
+10/30/24 17:50,10/30/24 17:52,0,206.211.154.22,100,125,1,10/30/24 17:52,R_3gCONyagTZ7RKSB,,,,258P,33.7858,-117.8448,anonymous,EN,3,2,4,4,3,3,3,3,3,3,3,4,2,4,2,2,2,2,2,3,2,2,2,3,3,5,2,3,3,,,,,No,,9159,control,
+10/30/24 18:24,10/30/24 18:26,0,206.211.154.39,100,134,1,10/30/24 18:26,R_3gU6jqpwkbWxAVW,,,,697K,33.7858,-117.8448,anonymous,EN,4,4,4,4,2,2,1,5,2,2,5,2,1,2,2,1,2,1,1,2,5,5,5,4,5,4,4,4,3,,,,,i am aware my feelings are not progressing positively,,8099,control,
+10/30/24 19:47,10/30/24 19:50,0,206.211.154.120,100,144,1,10/30/24 19:50,R_3cuqHKZtMEUVaeB,,,,222G,33.7858,-117.8448,anonymous,EN,1,1,2,2,1,1,1,2,2,3,2,4,3,3,4,4,4,4,4,4,2,2,2,3,3,2,2,1,3,it is really cool how many different utilities the app has. i particularly found the study feature helpful,9,0,12,,,8681,flourish,
+10/30/24 20:14,10/30/24 20:16,0,72.194.97.76,100,121,1,10/30/24 20:16,R_7diQbe681feQqIw,,,,287F,33.672,-117.7402,anonymous,EN,1,1,1,1,1,1,1,3,4,4,3,3,4,4,4,2,3,2,2,2,1,1,1,1,1,2,1,2,3,,,,,I didn't realize how one specific instance that I had experienced recently had brought my mood down for longer than it even occurred. ,,6423,control,
+10/30/24 21:32,10/30/24 21:34,0,206.211.154.18,100,145,1,10/30/24 21:34,R_19tUhiySc5QBB5z,,,,974M,33.7858,-117.8448,anonymous,EN,1,2,2,2,2,2,2,3,4,3,4,3,2,2,3,2,3,3,3,3,4,2,2,3,3,3,1,1,2,,,,,No,,7417,control,
+10/30/24 19:44,10/31/24 9:35,0,206.211.151.19,100,49912,1,10/31/24 9:36,R_1qwOiRsWb25Gm88,,,,1262S,33.7871,-117.8821,anonymous,EN,1,1,2,2,1,2,1,1,4,4,1,5,4,5,5,4,4,3,3,3,2,1,1,2,3,4,1,1,1,nothing ,12,3,18,,,8848,flourish,
+10/31/24 11:25,10/31/24 11:27,0,206.211.154.97,100,127,1,10/31/24 11:27,R_6oAZVruRW3ZjgWo,,,,706R,33.7858,-117.8448,anonymous,EN,1,1,2,1,2,2,2,2,3,3,2,3,3,4,4,4,2,2,3,4,2,2,1,3,1,2,1,2,2,I haven't,3,0,5,,,7351,flourish,
+10/31/24 11:43,10/31/24 11:49,0,206.211.154.35,100,365,1,10/31/24 11:49,R_6QSyAahjyaT1Odd,,,,849B,33.7858,-117.8448,anonymous,EN,2,2,1,1,1,1,2,3,3,4,4,4,2,2,4,3,2,1,2,2,1,2,3,3,1,2,3,1,1,,,,,I didn't realize I was feeling this unenthusiastic about things before responding to this survey.,,8655,control,
+10/31/24 11:48,10/31/24 11:50,0,206.211.154.142,100,138,1,10/31/24 11:50,R_76aOMPTcgvtrQrZ,,,,701G,33.7858,-117.8448,anonymous,EN,3,2,3,2,2,2,1,4,2,3,4,2,3,2,3,3,3,3,3,2,2,2,2,4,5,3,3,2,4,,,,,"Emotions comes in wave and while I feel more down these two weeks, there's always time to self evaluate and improve",,7414,control,
+10/31/24 12:27,10/31/24 12:33,0,206.211.154.39,100,335,1,10/31/24 12:33,R_6MKyuRMUzVv3api,,,,KM02,33.7858,-117.8448,anonymous,EN,1,1,2,1,1,2,1,3,4,3,2,2,3,2,4,3,4,4,4,4,1,1,1,2,4,3,1,3,1,I learned that they have many different activities. The AI remembers your past conversations and will ask about how previous problems you mentioned are going.,10,8,34,,,9059,flourish,
+10/31/24 13:03,10/31/24 13:06,0,206.211.151.131,100,182,1,10/31/24 13:06,R_71sj1A20D2XDgKR,,,,610M,33.7871,-117.8821,anonymous,EN,1,1,1,2,2,2,2,3,3,3,3,1,1,1,3,3,3,2,2,2,3,2,3,4,4,4,1,2,1,I haven't learned anything new from the last survey,7,4,11,,,9092,flourish,
+10/31/24 14:11,10/31/24 14:13,0,206.211.154.40,100,106,1,10/31/24 14:13,R_62M6Ido4CfnqUXb,,,,323S,33.7858,-117.8448,anonymous,EN,1,1,2,1,1,1,1,2,5,5,1,3,5,4,5,4,5,4,5,4,2,2,1,2,2,2,1,1,2,,,,,NA,,7354,control,
+10/31/24 14:26,10/31/24 14:30,0,206.211.154.25,100,272,1,10/31/24 14:30,R_5EfLUElF0NoaEv6,,,,482B,33.7858,-117.8448,anonymous,EN,1,1,2,1,2,1,1,2,5,4,1,3,3,3,4,2,3,1,2,2,1,1,1,2,3,3,1,1,1,,,,,"Considering the mix of emotions experienced over the course of two weeks, it feels easier/more accurate to describe them overall using adjectives with less strong connotations as opposed to words with stronger impacts.",,9046,control,
+10/31/24 14:49,10/31/24 14:53,0,206.211.154.26,100,211,1,10/31/24 14:53,R_32L4GkxOkH8bfmd,,,,443H,33.7858,-117.8448,anonymous,EN,2,2,2,2,1,1,1,2,4,3,3,3,2,2,4,3,3,2,2,3,2,1,1,2,2,2,2,1,2,"How important acknowledging your feeling are in day to day life
+ ",21,5,22,,,8092,flourish,
+10/31/24 15:08,10/31/24 15:10,0,206.211.154.41,100,111,1,10/31/24 15:10,R_1TXG6Fx2PRkhmYV,,,,184D,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,1,1,3,5,4,2,3,4,3,5,4,4,4,5,4,2,1,1,1,2,3,1,1,1,I have learned some helpful tools to relieve stress,20,4,8,,,7315,flourish,
+10/31/24 15:37,10/31/24 15:41,0,206.211.154.15,100,226,1,10/31/24 15:41,R_5oaOLt41eAcN8jR,,,,750T,33.7858,-117.8448,anonymous,EN,1,1,2,1,2,1,2,1,4,4,1,3,3,4,4,4,4,3,4,3,1,1,1,1,2,2,1,2,1,I have not learned anything new from using the Flourish app these past two weeks.,8,2,11,,,9068,flourish,
+10/31/24 16:03,10/31/24 16:06,0,206.211.154.26,100,200,1,10/31/24 16:06,R_63VmuzTkPTPIb5x,,,,757S,33.7858,-117.8448,anonymous,EN,2,2,2,2,2,2,1,3,4,3,2,4,3,3,4,3,3,3,4,3,1,2,2,1,1,1,1,1,1,Watching a TV series gives you a sense of familiarity that calms you down. It is good to practice familiarity to make you feel at ease.,9,4,9,,,8068,flourish,
+10/31/24 16:11,10/31/24 16:14,0,172.90.110.148,100,181,1,10/31/24 16:14,R_3Y9LsJHJ1c9sb1T,,,,300A,33.7854,-117.7948,anonymous,EN,1,1,1,1,1,1,1,2,5,5,2,4,4,5,4,4,4,3,4,3,2,4,2,2,2,2,2,1,1,,,,,"Ive been doing better recently 
+",,8077,control,
+10/31/24 16:13,10/31/24 16:17,0,174.236.106.205,100,244,1,10/31/24 16:17,R_7xHGmExrW7qyEWR,,,,702A,33.9388,-117.416,anonymous,EN,1,1,2,2,2,1,2,2,5,4,2,4,4,4,4,4,4,4,4,4,2,2,1,3,3,3,2,3,2,Different modes of gratitude ,6,2,11,,,8542,flourish,
+10/31/24 16:17,10/31/24 16:23,0,206.211.154.91,100,367,1,10/31/24 16:23,R_61SUuPbH4dnWQlH,,,,1264L,33.7858,-117.8448,anonymous,EN,1,1,3,3,2,2,2,2,3,3,2,2,2,1,3,1,3,1,1,1,2,3,2,3,3,3,2,2,2,,,,,i think i answered more positively this time,,8818,control,
+10/31/24 17:03,10/31/24 17:06,0,206.211.154.26,100,151,1,10/31/24 17:06,R_7Vlyp8ftUhvIQjT,,,,1032C,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,1,1,1,5,4,2,4,4,4,4,4,4,4,4,4,2,1,2,2,1,2,2,1,1,more tips for how to manage stress,75,6,28,,,7320,flourish,
+10/31/24 17:16,10/31/24 17:19,0,172.58.112.176,100,166,1,10/31/24 17:19,R_6Y9wXjc7zQjWC3A,,,,157O,33.8055,-117.9223,anonymous,EN,2,1,4,4,2,2,2,2,3,2,4,4,2,2,2,2,2,2,2,2,2,2,2,4,4,4,2,2,3,,,,,i did not listen when people said junior year would be this hard,,7741,control,
+10/31/24 17:50,10/31/24 17:52,0,23.243.191.184,100,117,1,10/31/24 17:52,R_7MSXJpTJlkAF9uE,,,,1054C,33.8351,-117.8652,anonymous,EN,1,1,1,1,1,1,1,3,5,4,1,3,4,3,4,4,4,5,4,4,1,1,1,1,2,1,1,1,1,,,,,Just that reflection is a good thing!,,8552,control,
+10/31/24 23:22,10/31/24 23:28,0,99.191.37.246,100,396,1,10/31/24 23:28,R_7Qa9WzU70CWSmy8,,,,488K,33.9075,-117.7866,anonymous,EN,2,1,3,3,2,3,3,3,4,4,4,4,3,4,4,4,3,3,3,3,4,4,2,3,2,4,1,3,2,,,,,I learned that I do feel a lot more isolated than I thought I did. ,,9031,control,
+11/1/24 0:16,11/1/24 0:20,0,50.113.66.193,100,227,1,11/1/24 0:20,R_3Gwck34EmXV2IaR,,,,433H,33.8144,-117.8522,anonymous,EN,4,2,3,2,1,1,1,3,4,3,4,2,2,3,3,4,3,3,3,2,3,2,3,2,3,2,1,1,1,The suggested activities are how you get the app to count that you participated ,5,0,6,,,9087,flourish,
+11/1/24 11:03,11/1/24 11:07,0,206.211.151.44,100,270,1,11/1/24 11:07,R_7SxB12asKkAELwa,,,,948J,33.7871,-117.8821,anonymous,EN,1,1,2,1,2,1,1,2,5,4,2,4,4,3,5,4,5,4,4,4,1,1,1,1,3,4,1,3,1,"I really like to write out my thoughts, out of all the tools on the app, I like the one where you chat with the Sunny Bot, it's interactive, which I like ",8,2,8,,,9038,flourish,
+11/1/24 11:11,11/1/24 11:15,0,206.211.154.14,100,239,1,11/1/24 11:15,R_6Vl5VjnJ9TiP7cB,,,,524Y,33.7858,-117.8448,anonymous,EN,1,1,2,2,2,1,2,2,4,4,3,2,3,3,2,2,3,3,2,4,1,2,2,3,4,4,1,1,1,The breathing practice is really helpful; it calmed my emotions a lot,20,5,46,,,8996,flourish,
+11/1/24 12:41,11/1/24 12:46,0,206.211.154.19,100,305,1,11/1/24 12:46,R_1CU84ferB5wvoUb,,,,0959O,33.7858,-117.8448,anonymous,EN,2,2,2,2,2,1,2,2,4,4,2,3,2,2,4,4,4,4,4,4,3,2,2,3,3,3,2,2,2,,,,,The first week from the recent 2 was really good then this week was more stressful ,,8011,control,
+11/1/24 14:19,11/1/24 14:25,0,206.211.154.91,100,384,1,11/1/24 14:25,R_3oTvFH64lJRCl6U,,,,275D,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,1,1,2,4,4,1,4,3,5,4,2,3,3,4,2,1,1,1,1,2,1,1,1,1,To keep an eye out for the little things and to make sure to remember my loved ones.,12,1,8,,,7405,flourish,
+11/1/24 16:33,11/1/24 16:36,0,206.211.132.149,100,161,1,11/1/24 16:36,R_1DH01L38CNIOlNv,,,,1151G,33.7858,-117.8448,anonymous,EN,2,2,2,1,2,2,1,3,3,3,4,4,4,3,3,3,3,2,4,3,3,3,3,2,1,4,1,1,1,,,,,No,,9085,control,
+11/1/24 17:09,11/1/24 17:11,0,172.56.182.84,100,119,1,11/1/24 17:11,R_3A1dNkngPUi4ooX,,,,436G,33.9764,-117.3341,anonymous,EN,2,2,3,2,2,1,2,1,4,3,3,2,3,2,4,2,3,2,3,2,3,3,3,4,4,4,1,1,1,,,,,no,,9055,control,
+11/1/24 11:01,11/1/24 17:25,0,206.211.154.37,100,22996,1,11/1/24 17:25,R_1oH2yYfvU5ccjNk,,,,275T,33.7858,-117.8448,anonymous,EN,2,4,3,2,2,1,2,5,2,3,5,3,2,2,2,2,2,1,1,1,4,4,5,4,4,3,1,2,3,,,,,"No, but it's always good to check in with myself",,9184,control,
+11/1/24 13:57,11/1/24 18:29,0,206.211.154.31,100,16361,1,11/1/24 18:29,R_5uX4pao46IOWtn7,,,,241C,33.7858,-117.8448,anonymous,EN,3,1,4,4,2,2,2,3,3,2,4,2,1,1,3,3,2,3,3,3,4,1,1,4,4,5,1,1,1,,,,,n/a,,7325,control,
+11/1/24 18:27,11/1/24 18:31,0,206.211.154.144,100,217,1,11/1/24 18:31,R_3xjDmFlmI787z6F,,,,533N,33.7858,-117.8448,anonymous,EN,1,2,3,2,2,2,2,2,3,3,3,3,3,3,4,3,3,3,3,2,4,3,3,4,2,4,3,3,2,I have learned some breathing exercises,10,2,20,,,7642,flourish,
+11/1/24 18:37,11/1/24 18:40,0,206.211.151.32,100,206,1,11/1/24 18:40,R_51BeoEjA8xX5n6k,,,,382C,33.7871,-117.8821,anonymous,EN,2,2,3,2,2,3,3,3,4,2,3,4,3,2,3,3,2,3,3,3,5,3,4,1,4,3,1,4,1,,,,,,,8986,control,
+11/1/24 23:46,11/1/24 23:49,0,98.147.221.158,100,188,1,11/1/24 23:49,R_7qaJWiAtacVjjXd,,,,214S,33.93,-117.9477,anonymous,EN,1,1,3,2,2,2,2,2,4,4,2,5,5,3,3,3,4,1,2,2,2,1,1,3,2,4,1,1,2,,,,,I learned that my emotions have changed drastically since taking the first survey.,,9016,control,
+11/2/24 0:13,11/2/24 0:22,0,66.7.152.138,100,507,1,11/2/24 0:22,R_61sw8Xhx2TnDWak,,,,342L,34.0544,-118.2441,anonymous,EN,2,2,3,3,2,2,2,3,3,3,3,3,3,3,2,2,2,2,2,2,3,3,2,3,1,2,1,1,1,I have learned how to control my time ,2,2,2,,,7311,flourish,
+11/2/24 10:35,11/2/24 10:39,0,206.211.154.146,100,262,1,11/2/24 10:39,R_3qVCk0HLYGr3PEO,,,,468M,33.7858,-117.8448,anonymous,EN,1,1,4,4,2,2,2,4,3,3,3,2,2,2,3,3,3,2,3,2,2,2,3,4,4,3,1,1,1,I noticed that Sunnie has a very intuitive AI model.,13,3,21,,,9033,flourish,
+11/2/24 17:24,11/2/24 17:43,0,206.211.154.130,100,1189,1,11/2/24 17:43,R_1DNAcWLDf4DlP57,,,,511B,33.7858,-117.8448,anonymous,EN,1,1,1,1,2,1,1,2,4,5,1,4,4,4,5,5,4,4,4,4,2,1,1,2,1,2,1,2,1,Nothing,3,0,7,,,8984,flourish,
+11/2/24 21:40,11/2/24 21:45,0,206.211.154.113,100,304,1,11/2/24 21:45,R_6xymb8FBgW4RuUh,,,,792A,33.7858,-117.8448,anonymous,EN,1,2,3,2,3,3,3,3,4,3,2,2,2,1,2,3,2,2,2,3,3,3,2,3,4,4,1,2,3,I have learned how breathing exercises can ground you when feeling anxious.,7,1,8,,,8684,flourish,
+11/2/24 18:34,11/3/24 11:20,0,206.211.154.94,100,63957,1,11/3/24 11:20,R_1eFbVivjgLrolms,,,,342L,33.7858,-117.8448,anonymous,EN,2,2,2,2,2,2,2,3,4,5,2,3,4,3,4,2,3,4,3,3,4,2,3,3,3,4,2,2,2,I have learned how to look for positivity in everyday life. ,2,0,14,,,7311,flourish,
+11/3/24 23:39,11/3/24 23:42,0,206.211.154.91,100,179,1,11/3/24 23:42,R_79792qySQRDpMRG,,,,151M,33.7858,-117.8448,anonymous,EN,1,1,4,4,2,2,2,2,4,4,2,3,3,3,4,3,3,2,2,2,1,2,1,4,2,5,1,1,1,,,,,N/A,,7291,control,
+11/3/24 23:59,11/4/24 0:01,0,206.211.154.126,100,125,1,11/4/24 0:01,R_1f6ys6si3PjgSIn,,,,939C,33.7858,-117.8448,anonymous,EN,1,2,4,4,1,2,2,3,4,3,2,2,1,1,3,3,3,1,3,3,2,2,2,4,5,5,1,1,1,,,,,I was more anxious the last 2 weeks then before,,8665,control,
+11/4/24 10:12,11/4/24 10:14,0,206.211.154.45,100,133,1,11/4/24 10:14,R_1mKMgWx4fEb1Qdn,,,,764A,33.7858,-117.8448,anonymous,EN,1,1,2,2,1,2,2,2,4,4,2,4,3,5,5,5,5,2,2,1,3,1,2,3,4,4,1,2,1,,,,,N/A,,8956,control,
+11/4/24 11:02,11/4/24 11:05,0,206.211.151.32,100,164,1,11/4/24 11:05,R_3rJtIB3beHHP1MR,,,,1153M,33.7871,-117.8821,anonymous,EN,1,1,1,1,1,1,1,2,5,4,2,4,4,4,5,5,5,4,4,4,2,2,1,1,2,2,2,2,2,i have learned to appreciate more of the smaller things that occur in my day to day life,25,5,20,,,9060,flourish,
+11/4/24 11:45,11/4/24 12:43,0,76.32.187.109,100,3502,1,11/4/24 12:43,R_6fAJ1WBUGNW8fvW,,,,504U,33.7871,-117.8821,anonymous,EN,2,1,2,2,1,2,1,3,4,2,4,1,2,2,3,3,3,3,3,4,1,2,1,4,4,3,2,1,1,"To check in with myself and others, making connections on a daily basis that can turn into routines.",11,3,7,,,8067,flourish,
+11/4/24 13:01,11/4/24 13:08,0,206.211.151.19,100,425,1,11/4/24 13:08,R_3rCk2PMLfRiFWoR,,,,418T,33.7871,-117.8821,anonymous,EN,1,1,1,1,2,3,2,1,3,3,2,1,2,2,3,4,3,2,4,3,1,1,1,2,2,1,1,2,1,Yes i learned the importance of of breathing in relaxing,20,3,40,,,8973,flourish,
+11/4/24 13:17,11/4/24 13:22,0,206.211.154.115,100,305,1,11/4/24 13:22,R_7EhgoXjHsE4eSJ4,,,,048M,33.7858,-117.8448,anonymous,EN,2,2,2,2,1,2,2,4,3,3,2,2,2,2,3,2,4,2,3,4,3,3,3,2,5,2,4,3,4,no,5,3,6,,,8990,flourish,
+11/4/24 13:37,11/4/24 13:41,0,206.211.154.32,100,237,1,11/4/24 13:41,R_7uKpxrfD2BuBnxv,,,,451S,33.7858,-117.8448,anonymous,EN,1,1,2,1,2,2,2,1,4,4,2,4,4,4,4,4,4,1,3,2,2,2,2,2,2,3,1,2,1,,,,,No,,8971,control,
+11/4/24 16:21,11/4/24 16:23,0,206.211.154.18,100,131,1,11/4/24 16:23,R_3wSJD5AMdBq88Gx,,,,705N,33.7858,-117.8448,anonymous,EN,2,1,3,2,2,2,2,3,4,4,3,3,3,3,3,3,3,3,4,3,3,2,2,2,2,4,1,1,1,,,,,learned to pay attention to how im feeling in the present moment,,9061,control,
+11/4/24 17:06,11/4/24 17:13,0,206.211.154.42,100,382,1,11/4/24 17:13,R_3u8Jatwq2NN2PPb,,,,873W,33.7858,-117.8448,anonymous,EN,1,2,2,2,2,2,2,3,4,3,2,3,3,3,3,2,2,2,3,2,4,3,3,4,4,4,1,2,1,I have learned more about the daily challenges and how in every conversation with the app applies to a psychological concept that helps to understand how I am feeling. ,11,4,14,,,8857,flourish,
+11/4/24 18:35,11/4/24 18:38,0,206.211.151.32,100,180,1,11/4/24 18:38,R_6qDUJ9lDS33pvJZ,,,,280I,33.7871,-117.8821,anonymous,EN,1,1,2,2,1,1,1,1,5,5,1,3,3,3,4,4,4,4,4,4,1,1,1,3,3,2,1,1,1,"It's fun! I like the deep breath focus, it's very nice and calming :)",6,1,9,,,8809,flourish,
+11/4/24 20:41,11/4/24 20:43,0,206.211.154.101,100,101,1,11/4/24 20:43,R_5iC2mK5xrStMfBx,,,,786L,33.7858,-117.8448,anonymous,EN,2,2,4,3,2,2,2,3,3,3,3,3,2,4,4,4,4,3,4,4,3,4,3,4,4,4,2,4,3,,,,,no,,8963,control,
+11/4/24 21:44,11/4/24 21:46,0,206.211.151.29,100,131,1,11/4/24 21:46,R_7E5yQOiNyZm1LkF,,,,766V,33.7871,-117.8821,anonymous,EN,1,1,2,2,2,1,1,2,4,3,4,3,3,2,4,3,4,4,3,3,2,1,1,3,4,3,1,2,1,,,,,"Since my midterms are over, I have more time to do things I want to do!",,8071,control,
+11/5/24 14:56,11/5/24 15:00,0,206.211.154.30,100,233,1,11/5/24 15:00,R_60uwZtTrbaDFasA,,,,493A,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,2,1,1,5,4,1,3,3,3,4,2,3,1,2,2,2,2,1,1,1,2,1,1,1,,,,,N/A,,8525,control,
+11/5/24 15:30,11/5/24 15:33,0,76.82.113.238,100,200,1,11/5/24 15:33,R_7jm4SkDLKCttKvI,,,,937M,33.6404,-117.9226,anonymous,EN,1,1,1,1,2,2,2,1,4,2,1,4,4,3,4,3,4,3,4,3,3,3,1,2,1,1,2,3,1,,,,,"My mood has lifted from the last survey I completed, but still feeling isolated at Chapman. I do notice I can feel all emotions in the span of 2 weeks. ",,8992,control,
+11/5/24 15:33,11/5/24 15:38,0,206.211.154.43,100,281,1,11/5/24 15:38,R_7KQTWUpl0bR7qc9,,,,508S_2,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,2,1,1,2,4,1,5,4,4,5,4,4,4,5,4,1,1,1,1,2,1,1,1,1,That it's ok to embrace the moments of being unmotivated,4,2,9,,,,flourish,
+11/5/24 17:17,11/5/24 17:20,0,206.211.154.16,100,206,1,11/5/24 17:20,R_6QchjtZtgwAIUQ9,,,,465H,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,1,1,1,4,4,1,4,5,4,5,4,5,4,4,4,1,1,1,1,1,1,1,1,1,,,,,Not really,,,control,
+11/5/24 18:27,11/5/24 18:32,0,104.28.85.64,100,305,1,11/5/24 18:32,R_6XnWxNPfaXR4qF5,,,,603J,33.816,-117.9692,anonymous,EN,2,1,2,1,2,2,2,2,5,3,3,4,4,4,4,3,3,3,3,3,3,2,2,3,3,3,3,2,2,Not much,8,3,17,,,8734,flourish,
+11/5/24 19:06,11/5/24 19:09,0,107.204.222.49,100,206,1,11/5/24 19:09,R_7BRAsKNSiFcwkus,,,,395F,33.8144,-117.8522,anonymous,EN,1,2,3,3,2,2,2,3,3,4,4,2,2,2,3,3,3,3,3,2,3,3,3,3,4,4,3,2,3,,,,,I should find some things to relax me during the day.,,8008,control,
+11/5/24 19:27,11/5/24 19:30,0,108.147.175.56,100,215,1,11/5/24 19:30,R_3n1wjszbOGORwnY,,,,322A,33.8405,-117.9526,anonymous,EN,2,2,2,2,1,1,2,3,4,4,4,2,3,2,4,3,4,3,3,3,2,2,1,2,4,3,1,2,1,,,,,Not necessarily.,,8013,control,
+11/5/24 21:17,11/5/24 21:18,0,76.32.186.148,100,74,1,11/5/24 21:18,R_1Fz9Fmn5o2UoYpc,,,,0836M,33.7871,-117.8821,anonymous,EN,1,1,2,2,1,1,1,3,5,4,3,3,4,3,4,4,4,3,3,3,1,1,1,3,2,3,1,1,1,,,,,no,,6517,control,
+11/5/24 21:31,11/5/24 21:36,0,99.113.211.92,100,269,1,11/5/24 21:36,R_5m47drVwMu7i0Lc,,,,1108B,33.8358,-117.9063,anonymous,EN,2,1,2,1,1,1,2,2,4,3,1,4,4,4,3,2,3,1,3,2,1,2,2,1,2,4,1,1,1,,,,,"Not particularly, maybe just how many different emotions you can feeling in two weeks",,8955,control,
+11/6/24 11:01,11/6/24 11:05,0,206.211.154.17,100,209,1,11/6/24 11:05,R_5FHA7ysIzUAO30l,,,,628D,33.7858,-117.8448,anonymous,EN,2,2,2,2,1,2,1,3,4,3,4,4,2,3,4,4,4,3,4,3,2,2,2,1,3,3,1,1,1,,,,,not really,,7883,control,
+11/6/24 14:41,11/6/24 14:54,0,206.211.154.23,100,783,1,11/6/24 14:54,R_6homVigFH4saMUh,,,,236A,33.7858,-117.8448,anonymous,EN,2,1,2,2,2,2,2,2,4,3,2,3,3,3,4,4,4,4,4,2,1,1,1,2,2,2,1,1,1,Appreciating the small things in each day or being reminded of a joyful event in the past is pretty nice. ,7,2,13,,,8056,flourish,
+11/6/24 17:45,11/6/24 17:51,0,23.240.77.13,100,397,1,11/6/24 17:51,R_7EfQsIJR640gkZG,,,,0773B,33.8144,-117.8522,anonymous,EN,3,3,3,4,2,2,3,3,3,3,5,3,2,2,3,2,2,2,2,2,5,4,5,4,4,3,5,4,4,"The app is nice, but sometimes it is not what you want. It feels like you should always do the tasks that it’s asking you to do rather than just going on the app and using it for texting when you’re feeling stressed.",7,1,13,,,4840,flourish,
+11/6/24 20:27,11/6/24 20:31,0,206.211.154.141,100,220,1,11/6/24 20:31,R_5uM7PV3JKYVFMJz,,,,1071E,33.7858,-117.8448,anonymous,EN,2,1,1,1,1,1,1,2,4,4,3,4,3,3,4,4,4,3,5,3,1,1,1,3,3,2,1,2,2,,,,,Not at this moment.,,9054,control,
+11/6/24 20:54,11/6/24 20:59,0,206.211.154.18,100,331,1,11/6/24 20:59,R_7fqvEAtZyRD5K7d,,,,358T,33.7858,-117.8448,anonymous,EN,2,2,3,3,1,3,3,4,3,3,5,2,4,2,3,2,4,2,2,3,3,4,3,4,4,4,2,3,2,Sunny has recommended compartmentalization to me so that I can learn to manage one thing at a time rather than feeling anxious about them all day. I liked that suggestion.,4,1,12,,,5159,flourish,
+11/6/24 20:56,11/6/24 21:01,0,107.204.223.160,100,332,1,11/6/24 21:01,R_12cqhGHW3ntrvFU,,,,248S,33.8144,-117.8522,anonymous,EN,1,1,2,1,1,2,2,2,4,5,2,5,5,5,5,5,5,5,4,5,1,2,1,2,2,3,1,2,1,,,,,I learned more about myself and how the election has been making me feel.,,8090,control,
+11/6/24 22:21,11/6/24 22:29,0,206.211.154.135,100,475,1,11/6/24 22:29,R_1JZpuVv7MDilq4p,,,,227R,33.7858,-117.8448,anonymous,EN,1,2,3,2,1,1,1,4,5,4,2,3,3,3,5,3,5,1,5,3,2,1,1,1,4,3,1,2,3,I have learned to be more aware of my surroundings and grateful for the things that I am surrounded by. ,4,1,12,,,8589,flourish,
+11/7/24 0:55,11/7/24 0:58,0,76.32.191.47,100,191,1,11/7/24 0:58,R_6AF2ahyDs2k0zhm,,,,215S,33.754,-117.8578,anonymous,EN,2,1,2,3,2,2,2,2,4,4,3,4,5,4,4,5,4,5,5,5,1,2,1,3,3,4,2,2,1,,,,,That I sometimes underestimate how I'm actually feeling.,,9001,control,
+11/7/24 11:03,11/7/24 11:05,0,206.211.154.28,100,126,1,11/7/24 11:05,R_5k40UbvkglSKArD,,,,1081C,33.7858,-117.8448,anonymous,EN,2,1,3,2,1,2,2,2,3,3,3,3,3,2,4,4,4,3,4,3,2,2,1,2,3,3,2,2,1,,,,,Self-reflection,,7536,control,
+11/7/24 11:04,11/7/24 11:07,0,206.211.154.16,100,181,1,11/7/24 11:07,R_72lCPZJfUe6xvOZ,,,,1047B,33.7858,-117.8448,anonymous,EN,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,4,2,2,3,3,3,2,,,,,not really,,9074,control,
+11/7/24 11:15,11/7/24 11:24,0,206.211.151.26,100,565,1,11/7/24 11:24,R_39DO0kRmDMyY0Dv,,,,639K,33.7871,-117.8821,anonymous,EN,1,1,1,1,1,1,1,1,4,4,1,3,3,3,3,3,4,4,3,3,1,1,1,1,1,2,1,1,1,,7,2,3,,,9079,flourish,
+11/7/24 11:51,11/7/24 11:53,0,206.211.154.45,100,171,1,11/7/24 11:53,R_3s1OircKt5ka3BO,,,,1295N,33.7858,-117.8448,anonymous,EN,1,1,1,1,2,1,1,2,2,2,2,3,3,3,3,2,3,3,3,3,3,3,2,3,4,4,3,4,3,how useful it can be for learning practical tips,2,0,4,,,9081,flourish,
+11/7/24 11:49,11/7/24 12:01,0,206.211.154.17,100,734,1,11/7/24 12:01,R_66vKzErA45Cst57,,,,169O,33.7858,-117.8448,anonymous,EN,1,3,3,1,1,2,1,2,4,2,3,4,4,3,4,5,3,4,4,3,2,2,1,3,2,3,2,2,2,"I need to take more breaks in my life even if there small 15 min throughout the day
+",4,1,9,,,6600,flourish,
+11/7/24 14:36,11/7/24 14:38,0,206.211.154.18,100,132,1,11/7/24 14:38,R_7In1oPtSPNRfHuF,,,,1188P,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,1,1,2,5,4,2,4,4,4,5,5,5,4,5,5,1,1,1,2,3,2,1,1,1,,,,,im more calm than the previous two weeks i believe,,8100,control,
+11/7/24 14:41,11/7/24 14:44,0,206.211.151.19,100,184,1,11/7/24 14:44,R_6qb7eXRNpieEiIn,,,,734K,33.7871,-117.8821,anonymous,EN,1,1,2,2,2,1,1,1,4,3,3,3,3,3,3,4,3,4,4,4,2,2,1,2,2,2,3,3,3,"Yes, Ive learned that small habits in my daily life greatly affect my well being. ",48,5,30,,,8015,flourish,
+10/31/24 17:03,10/31/24 17:03,0,206.211.154.37,7,30,0,11/7/24 16:04,R_6oI5dleAdqv4bhp,,,,586C,,,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7331,flourish,
+11/7/24 16:28,11/7/24 16:30,0,174.23.241.83,100,133,1,11/7/24 16:30,R_6eRA45pEnBrygN7,,,,1099G,37.086,-113.5609,anonymous,EN,1,1,3,2,1,2,1,1,3,3,2,4,4,5,4,4,4,3,4,4,2,2,1,3,3,3,2,2,2,It has helped me calm down,4,3,3,,,8957,flourish,
+11/8/24 10:11,11/8/24 10:30,0,206.211.151.39,100,1133,1,11/8/24 10:30,R_5nUaTboH7G4DpxE,,,,1018A,33.7858,-117.8448,anonymous,EN,1,2,2,1,2,2,2,3,4,3,2,3,4,3,4,3,4,3,4,3,2,4,3,3,3,4,3,3,2,,,,,That I should pay more attention to my feelings in the moment ,,8999,control,
+11/8/24 11:10,11/8/24 11:30,0,206.211.154.30,100,1189,1,11/8/24 11:30,R_3O1TEfFIxzEGukN,,,,991I,33.7858,-117.8448,anonymous,EN,2,2,3,2,1,1,1,1,3,3,3,4,4,4,4,4,4,4,4,4,2,1,2,1,2,2,1,1,3,I've learned to take steps back to breathe when feeling overwhelmed,12,3,4,,,9030,flourish,
+11/8/24 11:39,11/8/24 11:41,0,206.211.154.16,100,138,1,11/8/24 11:41,R_532o6ZyJo6T6uS5,,,,1295A,33.7858,-117.8448,anonymous,EN,1,1,2,2,3,2,2,1,2,3,1,1,1,1,4,1,1,1,1,2,3,1,2,3,2,2,1,1,1,,,,,No I did not ,,9003,control,
+11/8/24 13:03,11/8/24 13:07,0,206.211.151.32,100,257,1,11/8/24 13:07,R_3gAcERX3M0l6X86,,,,529R,33.7858,-117.8448,anonymous,EN,1,1,3,2,1,1,1,2,4,3,3,3,2,2,4,1,2,2,3,2,4,3,1,3,5,3,1,2,1,No,7,3,15,,,8717,flourish,
+11/10/24 20:19,11/10/24 20:22,0,206.211.154.21,100,203,1,11/10/24 20:22,R_3oKNS2EOXkyaMMx,,,,441T,33.7858,-117.8448,anonymous,EN,2,2,3,3,1,1,1,3,3,2,4,2,2,2,3,2,2,2,2,2,3,2,1,3,4,5,3,3,1,,,,,"Not really, just shows how stressed out I have been this week. ",,7489,control,
+11/11/24 9:55,11/11/24 9:59,0,206.211.154.19,100,195,1,11/11/24 9:59,R_5V4HRi3fb0S3IOZ,,,,875M,33.7858,-117.8448,anonymous,EN,3,3,3,4,1,1,1,3,4,3,3,3,2,3,3,1,4,1,3,2,4,3,3,3,3,2,3,3,4,Overthinking is the thief of joy,3,1,2,,,8933,flourish,
+11/11/24 11:04,11/11/24 11:07,0,206.211.154.39,100,213,1,11/11/24 11:07,R_1qBH9Nt2cK2yOit,,,,641A,33.7858,-117.8448,anonymous,EN,1,2,3,2,2,1,1,3,4,4,2,3,3,3,3,4,3,4,4,4,4,2,2,3,3,3,2,1,2,,,,,Not really ,,8528,control,
+11/11/24 18:29,11/11/24 18:33,0,206.211.154.31,100,227,1,11/11/24 18:33,R_3rJff8Vwa0Nq8gJ,,,,146B,33.7858,-117.8448,anonymous,EN,1,1,2,1,1,1,1,3,4,5,3,4,2,2,4,3,4,2,2,2,1,3,3,3,3,4,1,3,2,,,,,My mental health has improved since the last survey,,7621,control,
+11/11/24 19:36,11/11/24 19:37,0,76.32.186.7,100,111,1,11/11/24 19:37,R_1efYMrc8sZRrevh,,,,1615R,33.7871,-117.8821,anonymous,EN,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,3,3,3,2,1,5,4,4,3,2,3,taking more time for myself ,20,8,7,,,9090,flourish,
+11/12/24 2:32,11/12/24 2:36,0,172.88.33.174,100,227,1,11/12/24 2:36,R_15u5o8axr6ShBgF,,,,915N,33.7832,-117.9773,anonymous,EN,1,1,2,1,1,1,1,1,3,3,1,4,4,4,4,3,4,4,4,4,2,1,1,3,3,4,4,4,1,,,,,my mood improveed,,6826,control,
+11/12/24 13:06,11/12/24 13:09,0,107.115.224.60,100,159,1,11/12/24 13:09,R_6OeR6XYICoxi8gv,,,,1131S,32.7104,-117.0528,anonymous,EN,4,1,1,4,1,1,1,2,5,5,2,4,5,4,5,5,5,4,5,4,1,1,1,1,2,2,1,1,2,,,,,I realized that the choices I have recently been making have led to a happier state of mind!,,9069,control,
+11/12/24 14:41,11/12/24 14:45,0,206.211.154.98,100,259,1,11/12/24 14:45,R_5LhV9zmC49H9w3f,,,,673G,33.7858,-117.8448,anonymous,EN,1,1,2,1,1,1,1,3,4,3,2,4,3,3,3,3,3,2,3,3,1,1,1,2,3,4,1,1,1,I've learned how to enhance my well-being. ,18,2,6,,,9083,flourish,
+11/12/24 17:16,11/12/24 17:21,0,206.211.154.27,100,308,1,11/12/24 17:21,R_3F3WBiz59exYa2p,,,,485E,33.7858,-117.8448,anonymous,EN,1,1,2,2,1,2,1,3,4,4,3,3,3,4,4,3,3,2,3,2,2,2,1,3,2,3,1,3,1,"I have learned to reflect on small moments and apply appreciation for them in my lifestyle
+",10,8,10,,,8804,flourish,
+11/12/24 18:31,11/12/24 18:33,0,206.211.154.36,100,109,1,11/12/24 18:33,R_32JriPIouJGy7cT,,,,1055C,33.7858,-117.8448,anonymous,EN,1,1,1,1,2,2,2,2,2,3,1,4,4,4,4,4,4,3,2,2,2,2,1,1,1,3,1,2,1,,,,,I feel more relaxed in the last two weeks ,,8666,control,
+11/12/24 22:40,11/12/24 22:43,0,206.211.151.116,100,202,1,11/12/24 22:43,R_3gSmGROnV0JNaZV,,,,1073G,33.7858,-117.8448,anonymous,EN,1,2,4,4,1,2,1,3,3,3,4,2,2,2,3,2,2,3,2,2,4,4,4,5,5,5,1,1,1,,,,,"Yes, my stress levels have significantly increased over the past two weeks due to political, personal health, and classwork-related issues.",,8680,control,
+11/12/24 23:13,11/12/24 23:18,0,172.90.65.101,100,260,1,11/12/24 23:18,R_1mZsvBjUzFN7WOl,,,,771T,33.7854,-117.7948,anonymous,EN,1,1,2,2,2,1,1,3,4,3,3,2,3,3,4,3,2,3,4,3,1,1,1,3,2,3,1,1,1,I was very impressed at its ability to recall certain topics from weeks ago that I told it. It's very easy to have a normal nice conversation with it that feels real,13,2,21,,,8934,flourish,
+11/13/24 9:39,11/13/24 9:42,0,206.211.154.29,100,199,1,11/13/24 9:43,R_7xRJDYPzdLnXbZD,,,,524D,33.7858,-117.8448,anonymous,EN,2,2,2,2,1,1,1,2,2,2,5,1,1,1,3,2,3,1,1,1,4,2,2,2,3,3,2,2,1,"the pomodoro study method, to count good/positive things throughout the day, to try to find a work/life balance
+",6,2,11,,,4982,flourish,
+11/13/24 9:41,11/13/24 9:43,0,206.211.154.32,100,122,1,11/13/24 9:43,R_3jkytjaGNzvI3pW,,,,838G,33.7858,-117.8448,anonymous,EN,2,1,2,2,3,2,2,3,4,3,2,2,2,2,4,3,3,3,3,2,2,3,2,3,3,4,4,4,4,,,,,no,,9086,control,
+11/13/24 15:27,11/13/24 15:30,0,206.211.151.100,100,182,1,11/13/24 15:30,R_6JJzg3kxs6OESBJ,,,,412H,33.7858,-117.8448,anonymous,EN,3,1,1,3,3,2,3,3,3,4,3,2,4,3,3,2,3,2,2,3,4,2,1,3,4,4,1,1,1,"Overall, from the Flourish app I have learned that most things will work out over time and I should try to stop worrying so much.",16,3,19,,,8959,flourish,
+11/13/24 16:16,11/13/24 16:19,0,70.228.80.6,100,208,1,11/13/24 16:19,R_3eqArwlYUFkTpjI,,,,658C,33.8144,-117.8522,anonymous,EN,3,2,2,2,2,2,3,3,4,3,2,4,4,4,4,3,4,3,3,3,2,2,3,3,3,3,2,2,2,-,8,4,6,,,7790,flourish,
+11/13/24 18:25,11/13/24 18:35,0,206.211.154.32,100,570,1,11/13/24 18:35,R_5kZZBy4X8YjVQlI,,,,228G,33.7871,-117.8821,anonymous,EN,2,1,3,3,1,1,2,4,5,5,4,4,3,4,5,5,5,3,5,3,2,1,1,3,2,4,2,2,1,,,,,not really just self reflection,,8549,control,
+11/13/24 18:35,11/13/24 18:39,0,206.211.154.38,100,254,1,11/13/24 18:39,R_5goNpJisz7NXz8n,,,,1146W,33.7871,-117.8821,anonymous,EN,4,4,4,4,3,3,3,5,2,2,4,2,1,2,1,2,1,3,2,2,4,5,4,5,5,5,2,2,3,I have not been using the Flourish app as much as I was the first few weeks. I have been feeling more down and less likely to help myself. ,20,4,58,,,8731,flourish,
+11/14/24 14:16,11/14/24 14:18,0,206.211.154.25,100,128,1,11/14/24 14:18,R_7DZ6x5xlTReYXRV,,,,648C,33.7871,-117.8821,anonymous,EN,2,2,3,2,2,2,2,3,3,3,3,1,1,1,3,3,3,2,3,3,2,3,2,4,4,4,1,2,1,,,,,Yes,,6209,control,
+11/14/24 16:29,11/14/24 16:55,0,206.211.154.15,100,1503,1,11/14/24 16:55,R_6sPpjgeMSL7rdFT,,,,833R,33.7871,-117.8821,anonymous,EN,1,1,2,1,2,1,1,2,4,4,2,4,3,3,5,5,4,5,5,4,1,2,1,2,1,2,1,3,1,no i have not ,2,0,2,,,8788,flourish,
+11/14/24 18:25,11/14/24 18:27,0,206.211.151.27,100,81,1,11/14/24 18:27,R_5DHFkiXx5rWvHif,,,,359M,33.8055,-117.9223,anonymous,EN,1,1,2,1,2,2,2,3,4,4,2,3,3,2,5,4,4,4,4,4,3,2,1,4,3,3,1,2,2,,,,,No,,8965,control,
+11/14/24 22:44,11/14/24 22:50,0,206.211.154.33,100,303,1,11/14/24 22:50,R_6t4IIGDcIiAzhPb,,,,617M,33.7871,-117.8821,anonymous,EN,1,1,2,1,1,1,2,1,5,4,1,3,3,3,4,1,4,1,2,1,2,2,1,4,5,4,1,1,1,,,,,I learned that I feel more at ease this time of round.,,8991,control,
+11/8/24 12:21,11/8/24 12:25,0,206.211.154.42,93,242,0,11/15/24 12:25,R_7myuog0GmcxZb0Z,,,,135D,,,anonymous,EN,4,4,4,4,2,3,3,5,3,3,5,2,2,2,3,2,2,2,3,3,4,3,5,4,4,4,1,3,3,no,1,1,1,,,9052,flourish,
+11/15/24 20:49,11/15/24 20:57,0,99.190.101.189,100,499,1,11/15/24 20:57,R_6wljd3xWQunqWIx,,,,660S,33.8144,-117.8522,anonymous,EN,1,1,2,1,2,2,2,3,4,4,3,4,3,4,3,3,3,3,3,3,2,2,1,2,2,3,2,2,3,I've learned its easier than I thought to make time for myself but its easy to forget to use the app!,15,4,20,,,6618,flourish,
+11/15/24 22:24,11/15/24 22:26,0,76.91.8.186,100,125,1,11/15/24 22:26,R_1PMPwyo1fxMJxkr,,,,1126Y,34.1104,-118.4514,anonymous,EN,2,2,4,4,2,2,2,3,3,3,3,2,3,3,4,3,3,3,3,2,3,3,2,4,4,5,1,3,1,,,,,no,,8937,control,
+11/16/24 3:56,11/16/24 4:01,0,206.211.154.99,100,292,1,11/16/24 4:01,R_3cYRROdZHutTLTT,,,,554S,33.7871,-117.8821,anonymous,EN,1,1,2,2,2,2,2,3,4,4,4,2,2,1,3,3,3,3,4,4,3,2,2,4,4,3,2,1,2,I've learned how to regulate my thoughts and my emotions and be more reflective of what I'm feeling,10,7,3,,,9169,flourish,
+11/16/24 17:05,11/16/24 17:13,0,206.211.154.107,100,509,1,11/16/24 17:13,R_3IcMUkAInx9JRmT,,,,570V,33.7871,-117.8821,anonymous,EN,1,1,2,1,2,2,1,2,5,4,1,3,2,3,4,3,5,2,2,2,4,4,1,1,2,4,1,2,1,AI can remember your previous conversations,8,1,18,,,8611,flourish,
+11/16/24 20:01,11/16/24 20:04,0,206.211.154.108,100,160,1,11/16/24 20:04,R_5rVIClaXQBRJcWr,,,,867T,33.7871,-117.8821,anonymous,EN,3,3,3,2,3,3,3,2,3,3,4,3,3,3,3,2,3,2,3,3,4,3,4,4,3,4,2,3,2,,,,,I've gotten more moody towards the end of the semester.,,9011,control,
+11/10/24 19:56,11/10/24 19:56,0,206.211.154.138,7,4,0,11/17/24 19:56,R_6CrXBxk5Q1E3eRM,,,,,,,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,9051,,
+11/18/24 16:36,11/18/24 16:42,0,206.211.154.30,100,321,1,11/18/24 16:42,R_6ett1AeLfhqLpaM,,,,342A,33.7858,-117.8448,anonymous,EN,2,2,2,3,2,1,2,2,3,3,2,4,4,4,4,5,4,4,4,5,2,3,3,3,2,3,2,2,2,,,,,"I learned how I have been working through little problems, was able to recognize my highs during the last weeks and helped me oversee the negative. ",,8953,control,
+11/18/24 17:06,11/18/24 17:12,0,206.211.154.111,100,393,1,11/18/24 17:12,R_3S0G2LRjJDHgkJj,,,,0963R,33.7858,-117.8448,anonymous,EN,2,2,2,2,2,2,1,4,3,3,3,3,3,3,3,3,3,3,3,3,4,1,4,4,4,3,4,4,4,I liked looking at my badges. ,7,4,10,,,8715,flourish,
+11/18/24 22:58,11/18/24 23:02,0,23.243.202.10,100,277,1,11/18/24 23:03,R_5MNcYioIZwCIvfP,,,,1169M,33.7499,-117.9071,anonymous,EN,2,3,4,4,2,2,3,3,4,2,5,2,1,3,3,4,2,3,4,2,4,5,1,4,5,4,1,2,1,"I haven't learned any new information. But personally, I learned how helpful an app can be with mental health. ",18,8,22,,,7554,flourish,
+11/19/24 19:04,11/19/24 19:08,0,108.184.76.222,100,231,1,11/19/24 19:08,R_5QA6xBmkY5Ty4xD,,,,243S,33.6205,-117.9321,anonymous,EN,1,1,2,2,1,2,2,3,5,3,2,4,5,5,5,4,4,4,4,3,2,3,2,2,3,3,4,4,4,"They have given me good advice on easy ways to cook and manage my schedule, but also just basic techniques to relax myself. Actually, right before a quiz in a class I normally flunk in, I spoke on Flourish and we did some breathing exercises right before beginning, and I did amazing on my quiz after that!",8,2,15,,,7612,flourish,
+11/20/24 10:03,11/20/24 10:06,0,206.211.154.41,100,179,1,11/20/24 10:06,R_5FwBGfgI0AWpECs,,,,154S,33.7858,-117.8448,anonymous,EN,3,2,2,2,1,1,1,3,3,3,3,2,2,2,4,2,4,2,3,2,2,3,2,4,4,4,1,1,1,,,,,,,8256,control,
+11/20/24 15:53,11/20/24 15:55,0,206.211.154.26,100,140,1,11/20/24 15:55,R_5t97DgXsPuzwdln,,,,875S,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,1,1,3,4,5,4,3,5,5,5,5,5,5,5,5,1,1,1,1,2,1,1,1,1,not much ,27,2,17,,,7616,flourish,
+11/20/24 18:38,11/20/24 19:30,0,206.211.154.43,100,3095,1,11/20/24 19:30,R_5oTozPMd0Ea1zbQ,,,,345B,33.7858,-117.8448,anonymous,EN,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,,,,,"N/a
+",,8733,control,
+11/20/24 20:47,11/20/24 20:50,0,206.211.154.122,100,187,1,11/20/24 20:50,R_6RUj3cIOwdzAzpl,,,,226O,33.7858,-117.8448,anonymous,EN,4,4,4,4,3,2,3,4,2,2,5,1,2,2,2,2,2,1,1,1,4,4,5,4,4,3,1,1,1,I have learned how to reflect on positive things about myself through the chat feature with sunny ,13,4,19,,,,flourish,
+11/21/24 10:25,11/21/24 10:27,0,206.211.151.33,100,136,1,11/21/24 10:27,R_1EhPIpbSfxUenw0,,,,1263J,33.8055,-117.9223,anonymous,EN,1,1,2,2,1,2,2,2,4,4,2,2,2,2,5,4,4,4,4,4,2,2,1,3,3,3,1,2,2,,,,,,,8685,control,
+11/14/24 11:49,11/14/24 11:51,0,206.211.154.44,57,138,0,11/21/24 11:51,R_7P0WRcMpn2DuzXr,,,,875R,,,anonymous,EN,1,1,2,2,2,1,2,2,4,3,4,3,2,3,4,3,2,2,3,2,2,2,2,2,3,3,2,2,2,,,,,,,6893,flourish,
+11/21/24 14:35,11/21/24 14:38,0,206.211.154.42,100,170,1,11/21/24 14:38,R_1dzsr40kxDZRPKP,,,,167N,33.8144,-117.8522,anonymous,EN,1,1,2,2,1,1,2,3,4,2,2,2,3,2,2,2,3,1,3,2,3,3,1,3,4,3,2,2,2,,,,,that my mood is shifting the closer I get to coming home for thanksgiving,,8577,control,
+11/21/24 16:30,11/21/24 16:33,0,206.211.154.34,100,153,1,11/21/24 16:33,R_7QRSCp3tn2zWYuf,,,,526K,33.8144,-117.8522,anonymous,EN,2,1,2,1,2,2,2,2,4,4,3,4,3,4,4,4,4,3,4,4,1,2,1,3,3,2,1,2,1,na,2,0,3,,,8962,flourish,
+11/21/24 17:00,11/21/24 17:02,0,206.211.154.39,100,128,1,11/21/24 17:02,R_67g0hl64Obu6CTq,,,,267S,33.8144,-117.8522,anonymous,EN,2,1,1,1,1,1,1,2,4,4,1,3,3,3,4,4,4,4,4,4,3,3,1,3,3,3,2,3,2,,,,,Recalling my frustrations from the past 2 weeks,,,control,
+11/21/24 17:00,11/21/24 17:02,0,216.3.131.238,100,140,1,11/21/24 17:02,R_7JrY7CtAU7BSSh6,,,,697K,34.011,-118.1145,anonymous,EN,2,2,4,3,2,1,1,3,3,3,4,2,2,3,4,3,3,2,3,3,2,2,3,4,4,5,2,2,2,,,,,,,,control,
+11/21/24 17:02,11/21/24 17:04,0,76.32.191.47,100,136,1,11/21/24 17:04,R_7ha0JL72m7xjZ29,,,,215S,33.7046,-117.8739,anonymous,EN,1,1,2,3,2,2,2,3,3,4,3,3,2,3,4,4,4,5,5,5,1,2,1,4,3,4,3,3,3,,,,,That the last two weeks have been very diverse emotionally.,,,control,
+11/21/24 17:00,11/21/24 17:05,0,206.211.154.121,100,251,1,11/21/24 17:05,R_6npSdTduNOtJOdX,,,,310C,33.8144,-117.8522,anonymous,EN,3,1,2,1,1,2,1,2,4,3,2,5,4,4,5,4,4,4,4,4,2,2,2,3,3,3,1,2,1,I have learned to take time out of my day to breathe and relax ,10,2,10,,,,flourish,
+11/21/24 17:07,11/21/24 17:13,0,206.211.154.146,100,332,1,11/21/24 17:13,R_3AOXwkuLCLzLG4p,,,,1216F,33.8144,-117.8522,anonymous,EN,1,1,1,1,1,1,1,1,4,4,3,3,2,2,3,4,3,2,3,2,3,2,4,1,3,3,1,1,1,breathing exercises ,4,1,9,,,,flourish,
+11/21/24 17:27,11/21/24 17:29,0,206.211.154.44,100,128,1,11/21/24 17:29,R_72zgCnRFd8TH9sW,,,,697K,33.8144,-117.8522,anonymous,EN,3,4,3,3,2,1,1,5,3,2,4,2,2,2,2,1,2,1,1,2,4,4,5,3,5,3,4,4,2,,,,,no,,,control,
+11/21/24 18:15,11/21/24 18:17,0,206.211.154.42,100,138,1,11/21/24 18:17,R_39yT9Hh4T5nuJtT,,,,875R,33.8144,-117.8522,anonymous,EN,2,2,1,1,3,1,2,3,3,3,3,3,3,2,3,3,2,2,3,3,2,2,2,2,3,2,2,2,2,not really,19,8,25,,,,flourish,
+11/21/24 18:42,11/21/24 18:45,0,12.75.215.65,100,151,1,11/21/24 18:45,R_7Phln4PRnXfALh8,,,,135D,33.8358,-117.9063,anonymous,EN,2,2,3,3,2,3,2,3,2,3,3,1,2,2,4,3,3,3,3,3,4,3,4,4,4,5,1,3,2,I have learned more about positive affirmations and to look for light and the good ,5,1,2,,,,flourish,
+11/21/24 18:51,11/21/24 18:55,0,76.200.225.132,100,248,1,11/21/24 18:55,R_5R9qgvPnbRoFvob,,,,1026S,33.6527,-117.5953,anonymous,EN,1,1,2,1,1,1,1,2,4,4,1,4,4,4,4,4,4,4,5,4,1,2,1,2,2,2,1,1,1,"Yes, I have, I have learned that this app is good and I always feel better after using it. ",76,7,31,,,,flourish,
+11/21/24 21:05,11/21/24 21:07,0,206.211.154.36,100,145,1,11/21/24 21:07,R_5dzFs0yOcJ3ZoLD,,,,1188S,33.8144,-117.8522,anonymous,EN,2,2,3,2,2,2,3,3,3,2,4,3,2,3,3,3,2,2,2,2,4,4,4,3,3,3,3,3,4,,,,,This week has been stressful so I dont think I learned something new this time,,8842,control,
+11/21/24 22:39,11/21/24 22:42,0,206.211.154.102,100,180,1,11/21/24 22:42,R_7POEudzQpOkOGxX,,,,477A,33.8144,-117.8522,anonymous,EN,2,2,2,2,2,2,2,3,3,3,3,5,3,4,4,5,3,3,4,3,4,5,3,5,4,5,3,3,4,I have learned more about mindfulness techniques!,20,4,10,,,,flourish,
+11/22/24 8:49,11/22/24 8:53,0,206.211.150.248,100,194,1,11/22/24 8:53,R_58B8IV37rXgyRpy,,,,193B,33.8055,-117.9223,anonymous,EN,2,1,2,1,1,2,2,3,3,4,3,3,3,3,4,3,4,3,3,3,2,1,1,2,2,3,1,1,2,I have learned that taking even just 5 minutes out of my day to focus on my mental health can have a big impact.,29,2,12,,,9045,flourish,
+11/22/24 12:37,11/22/24 12:40,0,107.115.224.98,100,171,1,11/22/24 12:40,R_1stuU5Q80EPxLKv,,,,708R,33.8358,-117.9063,anonymous,EN,2,2,4,4,2,3,3,3,4,4,2,2,2,3,3,3,3,2,3,3,3,2,3,4,3,3,1,1,1,,,,,N/a,,,control,
+11/22/24 13:50,11/22/24 13:55,0,108.225.139.172,100,272,1,11/22/24 13:55,R_1KuudTU2qNPy2uW,,,,216G,33.7854,-117.7948,anonymous,EN,2,2,2,2,1,1,1,3,4,3,3,3,3,3,3,3,3,2,2,2,3,2,2,3,3,3,1,1,1,"It provides ideas to practice healthy habits and involves active participation in breathing, meditation, focusing, etc. ",11,3,3,,,8025,flourish,
+11/22/24 14:32,11/22/24 15:02,0,206.211.154.37,100,1776,1,11/22/24 15:02,R_37UoUhw3MNAP8BX,,,,1009B,33.8144,-117.8522,anonymous,EN,2,2,2,2,1,1,2,2,2,2,2,3,3,3,4,3,3,2,4,3,4,3,4,4,4,4,3,3,4,"I have learned how to manage my anxiety
+",50,6,21,,,,flourish,
+11/22/24 15:11,11/22/24 15:14,0,206.211.151.136,100,193,1,11/22/24 15:14,R_5wcxRCDOqxvaMVl,,,,722R,33.8055,-117.9223,anonymous,EN,3,2,2,2,2,3,3,3,3,2,3,3,3,2,2,1,2,2,3,2,3,3,4,4,4,2,1,4,1,It still takes effort to do the activities.,8,8,16,,,,flourish,
+11/22/24 16:44,11/22/24 16:47,0,12.247.168.222,100,175,1,11/22/24 16:47,R_3g0VplXwi0hxonF,,,,546S,33.8951,-118.291,anonymous,EN,1,1,3,2,1,1,1,1,3,4,2,2,4,2,4,4,3,3,3,4,2,2,1,2,2,5,1,1,1,I have learned the importance of taking a few minutes a day to relax and focus on your mind and breathing. ,4,2,3,,,,flourish,
+11/22/24 19:11,11/22/24 19:18,0,76.32.186.17,100,437,1,11/22/24 19:18,R_3rl7Qlzn6aqL3Lj,,,,1152D,33.7871,-117.8821,anonymous,EN,2,1,2,2,2,1,1,1,4,3,2,3,4,3,4,4,4,2,3,1,1,2,1,1,1,3,1,1,1,"I haven't really learned anything new, but I have started utilizing the breathing exercises when I feel high anxiety and it has helped.",9,5,12,,,,flourish,
+11/22/24 19:18,11/22/24 19:28,0,47.180.171.6,100,593,1,11/22/24 19:28,R_5Wwiw17ZXkXQmdQ,,,,1156J,34.0349,-117.6185,anonymous,EN,2,2,2,3,2,2,2,3,2,3,3,3,2,2,4,3,2,2,2,2,2,3,3,3,3,4,3,4,3,I have learned many different study habits that help deal with stress when it comes to school. Such as using the Pomodoro timer. ,72,4,30,,,,flourish,
+11/22/24 23:08,11/22/24 23:13,0,172.58.116.60,100,312,1,11/22/24 23:13,R_5rpHhZIIhX06Jfp,,,,548L,33.8405,-117.9526,anonymous,EN,2,3,2,3,2,1,2,4,3,2,5,3,2,2,3,3,3,3,2,2,4,3,4,4,4,5,4,2,4,not much I dont know what to talk to the AI about,2,0,4,,,8437,flourish,
+11/23/24 13:22,11/23/24 13:24,0,206.211.154.31,100,172,1,11/23/24 13:24,R_6Ze6hj4Y3y8KrPX,,,,146B,33.8144,-117.8522,anonymous,EN,1,1,2,1,1,2,1,2,5,3,2,4,3,3,3,3,4,1,2,2,2,3,1,3,2,4,1,2,1,,,,,My mood has been improving still,,,control,
+11/24/24 14:42,11/24/24 14:44,0,75.83.51.212,100,127,1,11/24/24 14:44,R_3TMgX6SN2pWhcdz,,,,735P,34.2106,-118.8716,anonymous,EN,3,2,1,2,2,2,3,4,3,3,3,3,3,3,2,2,3,1,2,2,3,2,3,1,1,2,1,2,1,,,,,no,,,control,
+11/21/24 17:00,11/21/24 17:00,0,24.45.246.208,7,3,0,11/28/24 17:00,R_3nwVkzQOKffEhdX,,,,,,,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+11/21/24 17:01,11/21/24 17:01,0,206.211.144.54,7,4,0,11/28/24 17:01,R_1cvhE1KL6BusRRt,,,,,,,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+11/21/24 21:31,11/21/24 21:31,0,206.211.154.14,7,2,0,11/28/24 21:31,R_7HtD4MbxEC900Kt,,,,,,,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+11/29/24 11:01,11/29/24 11:02,0,67.81.251.142,100,111,1,11/29/24 11:02,R_6Bat2rrkAOpGUYF,,,,1077G,41.0782,-73.4603,anonymous,EN,1,1,1,1,1,1,1,2,4,5,2,4,4,3,5,4,4,4,4,4,2,2,1,1,2,2,1,1,1,,,,,I am overall very happy,,,control,
+11/30/24 17:47,11/30/24 17:49,0,23.243.191.184,100,118,1,11/30/24 17:49,R_1bTPdwhCaI55W3Q,,,,1054C,33.8351,-117.8652,anonymous,EN,1,1,1,1,1,2,1,1,5,5,1,3,4,2,4,5,4,4,4,4,1,1,1,1,2,2,1,1,1,,,,,"Nope the same as last time(s), it is good to reflect on the past few weeks and evaluate how you are feeling.",,,control,
+12/1/24 12:08,12/1/24 12:10,0,216.9.110.10,100,131,1,12/1/24 12:10,R_3YGC4XbdANg9kpr,,,,929Y,37.751,-97.822,anonymous,EN,1,1,2,2,2,2,2,2,3,3,3,2,2,3,2,2,2,2,2,2,2,2,1,3,3,3,2,2,2,,,,,,,,control,
+12/1/24 21:03,12/1/24 21:06,0,97.190.146.226,100,147,1,12/1/24 21:06,R_5R1IXy1o8WkaI3l,,,,394M,33.9249,-117.4592,anonymous,EN,2,2,2,1,2,2,2,2,4,4,3,2,2,2,3,2,2,2,2,2,3,2,2,3,2,2,1,2,1,,,,,"Yes, I have been in my down slopes the past few weeks. ",,,control,
+11/26/24 21:37,11/26/24 21:40,0,172.115.170.231,93,185,0,12/3/24 21:40,R_3bHrIL2OzbYNXNo,,,,582D,,,anonymous,EN,1,1,3,2,1,2,2,3,4,3,5,4,3,2,4,4,4,3,4,4,2,3,2,4,3,5,2,2,2,,,,,I find that I am responding more and more postivley with each survey,,,control,

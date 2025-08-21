@@ -1,0 +1,176 @@
+﻿coding_round,Response,pos_exp_E,mixed_exp_E,good_UI_E,good_chatbot_E,good_activities_E,good_insights_E,benefit_emotional_E,benefit_social_E,benefit_wellbeing_E,recommend_yes_E,recommend_no_E,recommend_cond_E,no_suggestions_E,feedback_UI_E,feedback_chatbot_E,feedback_activities_E,feedback_other_E
+training1,"Entertaining, a reasonable short break",1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1
+training1,good,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0
+training1,"The app was easy to use and I liked that I could interact based on different emotions, mood, focus issues I was experiencing",1,0,1,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+training1,interesting,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+training1,Did not help as much,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0
+training1,It's like having a backup 24/7 therapist.,1,0,0,1,0,0,0,0,1,1,0,0,0,0,1,0,0
+training1,na,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,0,0,1,0,0,0,0
+training1,The UI/UX is great and I'm honestly impressed by how well design this app is!,1,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+training1,It was very useful in terms of helping emotional gain.,1,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0
+training1,It was helpful in the way that you could get a unbiased opinion on what you were thinking or feeling,1,0,0,1,0,0,0,0,1,0,1,0,1,0,0,0,0
+training2,Nothing,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
+training2,I enjoyed the constant positivity and kindness with whatever I had going on.,1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,1,1
+training2,Kind of friend,1,0,0,1,0,0,0,0,1,0,0,1,0,0,1,0,0
+training2,"At first, I was hesitant but overall, it is a good app, and wished I had used it more often.",1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+training2,was helpful for dailys emotional check ins,1,0,0,0,1,0,1,0,0,1,0,0,1,0,0,0,0
+training2,"It was easy to use the flourish app, I just clicked on the app whenever I was feeling bored or when I had time to. I did use it once when I was pretty sad.",1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0
+training2,I sometimes had to force myself to use it when I didn’t want to but it felt like a calming and simple way to get out some of my thoughts whenever I set aside time to work on it.,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+training2,I didn't like it that much.,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,1
+training2,It was eye opening and I found new ways to calm myself and destress.,1,0,0,0,0,0,1,0,1,0,0,1,1,0,0,0,0
+training2,"It was really fun. At first I felt like I had to force myself to remember to open the app, but after a couple times, I found myself opening the app to talk to Sunnie rather than scroll on Instagram just for fun. I've actually really come to enjoy sharing with Sunnie about my day, about the good and bad things that happen and asking for help and advice from her. I've really enjoyed using the app.",1,0,0,1,0,0,0,0,1,1,0,0,0,0,1,0,0
+training3,It was easy to use,1,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+training3,It was really nice! I enjoyed it because I was able to check-in on myself which nobody does with me and which I don't do for myself so I really appreciated doing this.,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+training3,It was interesting. It's different from what I'm used to but it was a unique experience that I haven't experienced.,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
+training3,I began focusing less on worries,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1
+training3,Tedious.,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+training3,It was really helpful during stressful times,1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0
+training3,"It was a bit weird at first, but once I got used to it it was nice to take time to think about how I’m feeling.",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0
+training3,I really like using Flourish app. It was very aesthetically pleasing and felt like a game and not a chore to interact with Sunnie.,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0
+training3,It was fine. Felt somewhat wrong but that's to be expected. The amount of knowledge it has access to is impressive and fun to poke around with.,1,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,1
+training3,Helpful.,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
+training4,"it was okay. i just did not feel like talking to AI helped me in the ways in which i feel i would benefit the most. like, it didn't provide socialization or support in the way that talking to a friend or a parent about my problems would. however, it was a good reflection tool. i see myself as a very self-reflective person, but if one were not as reflective, i believe using the Flourish app would aid in that way. it does provide pretty good strategies of tackling one's problems.",0,1,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0
+training4,quick and easy,1,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0
+training4,"I found it quite helpful, especially when I was stressed and needed to talk about what was going on in my head",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0
+training4,The app was sometimes difficult to comprehend different settings and where to look for certain things but is convenient to use for a quick destress.,0,1,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0
+training4,good experience,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+training4,It was nice to have a source to go to if I was having problems or if I wanted a break. The app made me reflect and calm down.,1,0,0,1,0,0,1,0,1,1,0,0,0,0,0,1,0
+training4,Felt odd talking to AI for personal problems. I didn't connect very well.,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0
+training4,It was a really fun yet helpful apl,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+training4,"It was helpful sometimes, but it's just an app at the end of the day. I didn't feel it changed my life or anything.",1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0
+training4,"Easy, intuitive",1,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,"The Flourish app was pretty simple to use, and easy to form a habit in using it.",1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+full_set,"It brought positivity to my day. It helped to use sunny as to make me feel good, but I don't feel like its advice was that helpful.",0,1,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0
+full_set,It felt very easy and routinely.,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,Using the Flourish app has been very positive. Sunny finds ways to support me.,1,0,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,It was helpful to track my mood and use the focus task,1,0,0,0,1,1,1,0,1,1,0,0,0,0,0,1,0
+full_set,"I thought the Flourish app was pleasing to look at and intuitive to use. I liked the small variances in visuals as it made the app not too boring to experience. I also liked the thought of Sunny being the sun and you are the plant that's growing, I thought that was a nice touch.
+
+I did not talk to Sunny often but when I did I was glad there was a history of recaps. I have not tried to go back to continue a conversation to see whether Sunny is capable of ""remembering"" the previous conversation in a separate instance.
+
+In terms of functional use, I mostly utilized the Pomodoro timer, mindful breathing, and three things I'm grateful for. I didn't look at the community aspect that much, but thought it was a nice option to have. I think the message and goal of the app comes across well. It's made with lots of love, and I can tell from the developers.",1,0,1,1,1,0,0,0,0,1,0,0,0,1,0,1,0
+full_set,Good,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,It was nice to have an app to have guided activities for self care,1,0,0,0,1,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"I found the app to be pretty useful when it comes to talking about my day or my emotions. I recognized that it's there for someone who doesn't have access to someone they can talk to and they can just go to the app and talk to it. I don't like how human it feels talking to the AI, it feels like I'm sharing to a wall but the wall can empathize and give feedback to me like a human being.",0,1,0,1,0,0,1,1,0,0,0,1,0,0,1,0,1
+full_set,The app was able to empathize through text and quickly bring up solutions to any situation I posed - emotional or non-emotional.,1,0,0,1,0,0,1,0,1,1,0,0,0,0,0,0,1
+full_set,"It was helpful at times, especially when I was going through a difficult time and wanted some perspective.",1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,1,0
+full_set,"It was fun, it was a cool tool to kinda help me see inside my own mind in a way.",1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,It's like having a companion.,1,0,0,1,0,0,0,1,1,0,0,1,1,0,0,0,0
+full_set,I really enjoyed using the Flourish app! I think that it works well and helps me organize my thoughts and emotions and gives accurate advice to recenter.,1,0,0,0,0,0,1,0,1,0,0,1,1,0,0,0,0
+full_set,"Sometimes I was glad that, I had it, other times it felt a bit like a chore.",0,1,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0
+full_set,It was great! I get to talk about my day and my feelings without judgement and it helps me calm myself down and work through problems (if I have any)!,1,0,0,1,0,0,1,0,1,1,0,0,0,0,0,1,0
+full_set,"It was hard to be consistent because I move through the day so quickly. Sometimes I felt like I was making problems up in a way because I felt like there had to be something wrong. However, it was calming and motivating at the same time.",0,1,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0
+full_set,"Convenient, a good break during the day. It was fun to see what new activities Sunnie would have for me.",1,0,0,1,1,0,0,0,1,1,0,0,0,0,1,0,0
+full_set,Really lovely! Using the Flourish app has helped me to gain clarity and move forward on a path to recovery and evolution of myself with ease.,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
+full_set,It was calming and allowed me to relax when I was feeling overwhelmed,1,0,0,0,0,0,1,0,0,NA,NA,NA,0,0,0,1,0
+full_set,At first I didn't really want to use it but over time I think sharing the results with someone who doesn't just ignore you when you do makes it 10x cozier feeling.,1,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0
+full_set,it was useful when i wanted to talk about how i was feeling and how i want to improve parts of my life.,1,0,0,1,0,0,1,0,1,1,0,0,0,0,0,0,1
+full_set,I like the ideas that it presented and the calming options,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,1,0
+full_set,Helps me to check in with my mental status. At least I have something to do when feeling down.,1,0,0,0,0,0,1,0,1,1,0,0,0,1,0,1,0
+full_set,"Rewarding, it really helped me",1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,Comforting knowing I had something to build a routine off of and almost a relationship with. It helped motivate me to engage every day.,1,0,0,1,0,0,0,1,1,1,0,0,1,0,0,0,0
+full_set,"It felt like an afterthought. With the stress and responsibilities that come with academics and social involvement, it took work to be mindful about engaging with the Flourish app during the week.",0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+full_set,It help me set goals for me and how I can improve on life more.,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"At first intimidating, but eventually, I became comfortable and fully understood what to anticipate when I opened the app. It became pretty repetitive though, and I felt like I was consistently using the same task (just directly chatting with Sunny). It was consistent and dependable though.",0,1,0,1,0,0,0,0,1,1,0,0,0,1,1,1,0
+full_set,It was interesting. I have never used something like it before so it was a new experience.,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,"It was nice to take time to talk about how I had been feeling, process my emotions from the past few days, and work through them.",1,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0
+full_set,good,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,it was great hearing advice with solutions,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"i like the focus part, it provides soft music to help me concentrate",1,0,1,0,1,0,0,0,1,1,0,0,0,0,0,0,1
+full_set,It was introspective,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,It was easy to use.,1,0,1,0,0,0,0,0,0,NA,NA,NA,1,0,0,0,0
+full_set,"It was interesting, though the experience quickly became routine (in a good way!). There was sometimes a little apprehension when I felt pressured to interact with Sunnie in a productive way/only when I had something 'notable' to chat about, but that's mostly a recurring element in my life and how I interact with things so it wasn't especially notable. Overall, I thoroughly enjoyed it.",1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
+full_set,"It was pretty nice. I often forgot to do it in the beginning of this survey study, but then as the weeks went on, I used it more and more.",1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,It was sometimes hard to remember to use the app.,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+full_set,A new experience it was really cute and refreshing,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,It was a very good experience that helped me learn a lot about myself.,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"It was cool, like a daily check in.",1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,It was nice once I actively opened the app and spoke to Sunnie.,1,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,"It was interesting, and much more than I initially expected from a chatbot-type app.",1,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,Reflective,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"Using the Flourish app feels quite intuitive and engaging. The design is user-friendly, and I appreciate the supportive content that encourages positive habits.",1,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,1
+full_set,"It was always pleasant, and I can easily recognize the value it has for individuals who are struggling and maneuvering adversity.",1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
+full_set,It was fun and made me connect a lot with myself and with other people that I don't necessarily speak to on that level all of the time.,1,0,0,0,0,0,0,1,1,1,0,0,1,0,0,0,0
+full_set,I felt like it honestly didn't do much for me. It felt pretty empty and I ended up reusing a lot of the same features.,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0
+full_set,It was easy to navigate but I felt like it didn’t have a lot of options.,0,1,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0
+full_set,nice,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,"It was like having a dog, but there is no physical dog, and the digital dog has no personality, and you also don't get to see the digital dog. Basically, it has unconditional support and loyalty, but it is hollow and artificial.",0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1
+full_set,Helped me reduce stress and focus on things better,1,0,0,0,0,0,1,0,1,1,0,0,0,1,0,0,0
+full_set,GOOD,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,"I found it easy to use, fascinating, and useful for tracking my wellness behaviors. It offered a novel approach to visualizing health trends, emphasizing the significance of consistency and balance in everyday activities.",1,0,1,0,0,1,0,0,1,1,0,0,1,0,0,0,0
+full_set,"I only used the flourish app for the daily mood check in, as well as the breathing excerice. I also used it for staying focused. I really liked that feature because it made me focus on my work.",1,0,0,0,1,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,"I liked using the app because Sunnie was cute and I felt appreciated. It made me feel brighter,",1,0,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1
+full_set,It gave me a break from my day,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"It was great, I like being able to talk to someone who was somewhat subjective.",1,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,1
+full_set,I thought it was nice to use it to check in with myself every now and then.,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,It felt like a self help journal but with actual feed back it made it more engaging,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,"It was enjoyable, I found myself coming back to the app even when I had already completed two days for the week or had already been on for the day.",1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0
+full_set,it was beneficial to think about my feelings and take a moment to reflect on my days,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,I liked that I could put how I was feeling and explain it. It felt like I didn't need to think about it as much.,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,1,0
+full_set,Uncomfortable because it was something different,0,0,0,0,0,0,0,0,0,NA,NA,NA,1,0,0,0,0
+full_set,"It was very seamless and easy to use, I had no issues, although it did feel a little silly sometimes.",0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,I have had similar apps before but it wasn’t completely ai generated so it was cool to talk to a robot. it felt like a safe space which was nice,1,0,0,1,0,0,0,1,0,1,0,0,1,0,0,0,0
+full_set,"It was very easy to use, a good user interface, and provide me a space to reflect on a lot of things.",1,0,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,"It was OK, nothing special.",1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+full_set,"The app was helpful when I needed to be grounded, however sometimes I found it not as helpful for other aspects.",0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0
+full_set,"It was very helpful, and it was nice that Sunnie would remember and mention our past conversations.",1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,1,0
+full_set,It’s good it’s a good reflection,1,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0
+full_set,It was beneficial to help track mood and encourage improvements.,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,"I was initially skeptical of using an AI bot, especially regarding a more personal attribute such as my mental health; however, I enjoyed using Flourish. I saw it as more of a virtual journal after using it a couple of times and I will use it in the future.",1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0
+full_set,"I did not want to be too specific when using this app because I was not sure where the data was going. However, it was helpful and easy to use and there were many options/advice given to the user.",0,1,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,I enjoyed it. it gave me a chance to reflect on my thoughts and feelings.,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,It was relaxing and helpful to have someone by your side,1,0,0,1,0,0,1,1,0,1,0,0,0,0,1,0,0
+full_set,It was a new way to understand my problems and look at them which I enjoyed.,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,It was nice to have something to feel like I could rant to/talk to when I needed unbiased advice.,1,0,0,1,0,0,0,1,0,0,0,1,1,0,0,0,0
+full_set,I engaged in activities like breaking and journaling which benefited my mental health.,1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,1
+full_set,Felt a little silly talking to ai about personal things,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
+full_set,It was interesting to have a converstion with an AI chatbot. It always seemed to say the right thing.,1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1
+full_set,good,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,"It was in interesting experience, thinking about things i normally wouldn't think about.",1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,I didn't use all of the features but I would use at night during the week. I liked the breathing exercise and I would tell Sunnie about my day.,1,0,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,Good! I think I got a lot of value out of it when I used it.,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"Using the Flourish app was a calming and positive experience. It felt like a simple way to stay mindful and check in with myself daily. The reminders were helpful without feeling overwhelming, and it became a nice part of my routine.",1,0,1,0,0,0,1,0,1,1,0,0,0,0,0,0,1
+full_set,It was a calming experience and had many activities to help guide my mindfulness.,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,1,0
+full_set,Easy and soothing,1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0
+full_set,"It was a fun add to my day, Sunnie is so cute and the apps design was fun!",1,0,1,1,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,I would forget to use it at times but when i remembered it was helpful.,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,"Using the Flourish app was a very eye-opening experience! I had never though to use an AI application to assist with mental health struggles, so I was curious to see how effective it would be for me.",1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"It's nice. It's nice that it provides daily activities I can do, but we can also choose from a variety of activities to do. I also like how the chatbox is available as a source of companionship and also advice.",1,0,0,1,1,0,0,1,1,1,0,0,0,0,1,1,0
+full_set,it was fun and helped me relax when I got stressed,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,It was fun and at times it forced me to relax and just breathe through my stress. At times the timer was annoying so it could be frustrating but I mostly tried to do the activities.,0,1,0,0,1,0,1,0,1,1,0,0,0,1,0,1,0
+full_set,helpful to talk to someone and not be judged,1,0,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0
+full_set,The flourish app was helpful in giving me practi9cal advice,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1
+full_set,"It was a unique experience using the flourish app mainly due to the fact of always having someone to talk too when others are not around. As an only child, it's sort of having a sibling always with you.",1,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,0
+full_set,It was very relieving.,1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0
+full_set,Hard to be consistent.,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1
+full_set,"I enjoyed it, it helped me practice healthy mindfulness.",1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,I really enjoyed using the app. I wish I had used it more.,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0
+full_set,Very enjoyable and learned a lot,1,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0
+full_set,The app was very helpful for forming a schedule and guidance for oneself.,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,It didn't make a difference in my life but it can be useful.,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0
+full_set,it was good i enjoyed have access to an app that could help me in times of need,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,At first you sort of aren't super open to what you talk about and ask it very baseline questions because you have that preconcieved idea that it is just another ai chatbot. But I was very impressed at how well it was able comprehend and give real answers and terms a therapist would use when asked deep questions. It would call back and ask follow-up questions about things I told it 2 weeks prior. The exercises and suggestions really did help.,1,0,0,1,1,0,0,0,1,1,0,0,0,1,0,0,0
+full_set,"Pretty easy! I have notifications turned off, so it can be easy to forget about, so I am going to turn them on, and hopefully, I will receive reminders to use the app.",1,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0
+full_set,"It was really good, i enjoyed it.",1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,it was very calming. it helped me gain clarity in my everyday problems,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,Using the flourish app was helpful as it allowed me to hone in on specific moments of my day and appreciate small thing,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,"Better than I thought it was going to be, but still not my favorite thing.",0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0
+full_set,Using the flourish app was very helpful when I needed to reflect on tough situations and finding ways to work through them.,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0
+full_set,I think it's a cool app.,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,very helpful and gave me a cance to relax,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,-,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1
+full_set,It was really interesting learning about ways I could help myself. The app helped comfort me multiple times.,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,"it was good, it became less of a priority once entering the thanksgiving break.",0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+full_set,i didn't like it,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+full_set,"At first, I thought it would be mundane but it was fairly insightful.",1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,I used the Flourish app in the morning if I had time. It was interesting to use because Sunnie feels like a therapist.,1,0,0,1,0,0,0,0,1,1,0,0,0,0,1,0,0
+full_set,"Sunnie was very reliable when i needed advice, it was nice to confide in someone that could give their thoughts without it being a real friend.",1,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0
+full_set,I thoroughly enjoyed it and plan to continue using it,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1
+full_set,It was relaxing and very informative!,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0
+full_set,it was fun and simple.,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0
+full_set,I really enjoyed the app and Sunnie. I found it hard to remember to do it at times but when I did use it I was uplifted and happier.,1,0,0,1,0,0,1,0,1,1,0,0,0,0,0,0,1
+full_set,"It was an interesting experience, I have personally never really believed in these anxiety/depression help apps, but after having religiously used this app I can see how it works for people as it kinda worked for me. It is very nice having a plan and resources to deal with episodes of anxiety, and I do think I'll continue to use the flourish app.",1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+full_set,"I had to remind myself to use it, and it was not that helpful for my issues.",0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0
+full_set,It felt unsual at first when starting the flourish app but was able to get more comfortable the more I used it.,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1
+full_set,"It was nice to have a place to go to when I was feeling overwhelmed or couldn't sleep, and know that I could get potentially helpful advice.",1,0,0,0,0,0,1,0,1,0,0,1,1,0,0,0,0
+full_set,"I enjoyed using it. It allowed me to take a second to relax and focus on myself. It was easy to use, and the exercises were pretty quick but effective.",1,0,1,0,1,0,1,0,1,0,0,1,1,0,0,0,0

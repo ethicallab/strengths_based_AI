@@ -1,0 +1,133 @@
+---
+title: "Interrater reliability for Qualitative Codings"
+author: "Julie"
+date: "6/21/2025"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load libraries
+```{r}
+library(tidyverse)
+library(jtools) # for theme_apa in figures
+library(pander)
+library(emmeans) # Posthoc analyses
+library(irr)
+```
+
+# Load qualitative coding data
+```{r}
+# read csv
+Julie <- read_csv("julie_codings_csv.csv") 
+Julian <- read_csv("julian_codings_csv.csv") 
+```
+
+# Reshape data
+
+```{r}
+Julie <- Julie %>% 
+  dplyr::mutate(experience_E = case_when(
+    pos_exp_E == "1" ~ "pos_exp",
+    mixed_exp_E == "1" ~ "mixed_exp",
+    pos_exp_E == "0" & mixed_exp_E == "0" ~ "neither",
+    TRUE ~ NA_character_)) |> 
+  dplyr::mutate(recommend_E = case_when(
+    recommend_yes_E == "1" ~ "yes",
+    recommend_no_E == "1" ~ "no",
+    recommend_cond_E == "1" ~ "conditional",
+    TRUE ~ NA_character_))
+
+Julian <- Julian %>% 
+  dplyr::mutate(experience_A = case_when(
+    pos_exp_A == "1" ~ "pos_exp",
+    mixed_exp_A == "1" ~ "mixed_exp",
+    pos_exp_A == "0" & mixed_exp_A == "0" ~ "neither",
+    TRUE ~ NA_character_)) |> 
+  dplyr::mutate(recommend_A = case_when(
+    recommend_yes_A == "1" ~ "yes",
+    recommend_no_A == "1" ~ "no",
+    recommend_cond_A == "1" ~ "conditional",
+    TRUE ~ NA_character_))
+```
+
+# Combine dataframes
+```{r}
+bothCoders <- left_join(Julie, Julian, by = c("coding_round", "Response")) 
+
+# remove training rows
+bothCoders <- bothCoders |> 
+  dplyr::filter(coding_round == "full_set")
+```
+
+# Calculate interrater reliability
+```{r}
+# initialize empty dataframe
+Kappa <- data.frame(matrix(ncol = 14, nrow = 1))
+
+# create new columns
+Kappa <- Kappa %>% 
+  dplyr::rename("experience" = "X1",
+                "good_UI" = "X2",
+                "good_chatbot" = "X3",
+                "good_activities" = "X4",
+                "good_insights" = "X5",
+                "benefit_emotional" = "X6",
+                "benefit_social" = "X7",
+                "benefit_wellbeing" = "X8",
+                "recommend" = "X9",
+                "no_suggestions" = "X10",
+                "feedback_UI" = "X11",
+                "feedback_chatbot" = "X12",
+                "feedback_activities" = "X13",
+                "feedback_other" = "X14")
+
+# Experience
+Kappa$experience <- kappa2(bothCoders[, c("experience_E", "experience_A")], weight = "unweighted")$value
+
+# Good UI
+Kappa$good_UI <- kappa2(bothCoders[, c("good_UI_E", "good_UI_A")], weight = "unweighted")$value
+
+# Good Chatbot
+Kappa$good_chatbot <- kappa2(bothCoders[, c("good_chatbot_E", "good_chatbot_A")], weight = "unweighted")$value
+
+# Good Activities
+Kappa$good_activities <- kappa2(bothCoders[, c("good_activities_E", "good_activities_A")], weight = "unweighted")$value
+
+# Good Insights
+Kappa$good_insights <- kappa2(bothCoders[, c("good_insights_E", "good_insights_A")], weight = "unweighted")$value
+
+# Benefit Emotional
+Kappa$benefit_emotional <- kappa2(bothCoders[, c("benefit_emotional_E", "benefit_emotional_A")], weight = "unweighted")$value
+
+# Benefit Social
+Kappa$benefit_social <- kappa2(bothCoders[, c("benefit_social_E", "benefit_social_A")], weight = "unweighted")$value
+
+# Benefit Wellbeing
+Kappa$benefit_wellbeing <- kappa2(bothCoders[, c("benefit_wellbeing_E", "benefit_wellbeing_A")], weight = "unweighted")$value
+
+# Recommend
+Kappa$recommend <- kappa2(bothCoders[, c("recommend_E", "recommend_A")], weight = "unweighted")$value
+
+# No suggestions
+Kappa$no_suggestions <- kappa2(bothCoders[, c("no_suggestions_E", "no_suggestions_A")], weight = "unweighted")$value
+
+# Feedback UI
+Kappa$feedback_UI <- kappa2(bothCoders[, c("feedback_UI_E", "feedback_UI_A")], weight = "unweighted")$value
+
+# Feedback Chatbot
+Kappa$feedback_chatbot <- kappa2(bothCoders[, c("feedback_chatbot_E", "feedback_chatbot_A")], weight = "unweighted")$value
+
+# Feedback Activities
+Kappa$feedback_activities <- kappa2(bothCoders[, c("feedback_activities_E", "feedback_activities_A")], weight = "unweighted")$value
+
+# Feedback Other
+Kappa$feedback_other <- kappa2(bothCoders[, c("feedback_other_E", "feedback_other_A")], weight = "unweighted")$value
+
+
+# output dataframe
+Kappa
+```
+
